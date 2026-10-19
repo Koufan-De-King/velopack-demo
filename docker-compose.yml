@@ -1,0 +1,20 @@
+services:
+  flutter-velopack:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    command: bash
+    stdin_open: true
+    tty: true
+
+  feed:
+    image: python:3.12-slim
+    working_dir: /releases
+    volumes:
+      - ./Releases:/releases:ro
+    ports:
+      - "8080:8000"
+    command: python3 -m http.server 8000 --bind 0.0.0.0
