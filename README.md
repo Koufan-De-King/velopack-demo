@@ -51,7 +51,7 @@ rm -rf Releases \
   /var/tmp/velopack/com.example.velopackdemo
 ```
 
-### 2. Build and package version 1.0.0
+### 2. Build and publish version 1.0.0
 
 ```bash
 flutter pub get
@@ -79,25 +79,26 @@ docker compose run --rm flutter-velopack bash -lc \
   --icon build/generated/velopack-demo.png \
   --categories Utility \
   --packTitle 'Velopack Flutter Demo' \
-  --outputDir build/first-release-artifacts"
+  --delta BestSpeed \
+  --outputDir Releases"
 ```
 
-### 3. Build and publish version 1.1.0
+### 3. Save the 1.0.0 AppImage as the installed starting version
+
+```bash
+mkdir -p build/installed
+cp Releases/com.example.velopackdemo.AppImage \
+  build/installed/com.example.velopackdemo.AppImage
+chmod +x build/installed/com.example.velopackdemo.AppImage
+```
+
+### 4. Build and publish version 1.1.0
 
 ```bash
 ./scripts/container-build.sh 1.1.0
 ```
 
-This builds Flutter 1.1.0 on the host and packages it with the Dockerized Velopack CLI into `Releases/`.
-
-### 4. Install the 1.0.0 starting AppImage
-
-```bash
-mkdir -p build/installed
-cp build/first-release-artifacts/com.example.velopackdemo.AppImage \
-  build/installed/com.example.velopackdemo.AppImage
-chmod +x build/installed/com.example.velopackdemo.AppImage
-```
+Because `Releases/` already contains 1.0.0, Velopack generates a 1.1.0 delta alongside the full package.
 
 ### 5. Start the local release feed
 
@@ -124,6 +125,8 @@ Expected flow:
 6. The AppImage relaunches and displays version `1.1.0`.
 
 The app also performs a background check every 15 minutes. The manual check button is included for demonstration and troubleshooting.
+
+On Linux, Velopack's first update from an AppImage is normally a full download because the initial AppImage installation does not provide a local base `.nupkg`. Later updates can use the generated delta package. Velopack also manages partial downloads and resumes from `.partial` files after an interrupted download.
 
 ## Useful commands
 
@@ -159,7 +162,37 @@ tail -f /tmp/velopack_com.example.velopackdemo.log
 - The user action downloads the update and calls `updateAndExit`.
 - On Linux AppImage, the demo starts a detached relaunch helper before applying the update because the `velopack_flutter` Linux restart callback is not reliable in this proof-of-concept environment.
 - `scripts/container-build.sh` builds with host Flutter and packages with containerized `vpk`.
-- `scripts/package-release.sh` packages an existing Flutter Linux bundle.
+- `scripts/package-release.sh` packages an existing Flutter Linux bundle, generates deltas when a previous release is present, and accepts an optional signing configuration.
+
+## Remote release workflow
+
+`.github/workflows/release-linux.yml` provides the production-shaped path:
+
+1. Push a tag such as `v1.2.0`, or run the workflow manually.
+2. GitHub Actions builds the Linux AppImage in an ephemeral Ubuntu runner.
+3. It downloads the previous feed before packaging so Velopack can generate deltas.
+4. It publishes the release assets to GitHub Releases.
+5. It publishes the stable `Releases/` feed to GitHub Pages.
+
+The generated production app is compiled with this feed URL:
+
+```text
+https://motouom.github.io/velopack-demo/
+```
+
+Enable GitHub Pages for the repository with **GitHub Actions** as the source before using the workflow. The local demo continues to use `http://127.0.0.1:8080`.
+
+## Linux hooks and signing
+
+The app handles Velopack's cross-platform command-line lifecycle hooks and exits without opening a UI. Velopack's fast callback hooks are Windows-only; Linux uses the command-line hook contract.
+
+Signing is intentionally opt-in. To sign a CI build with Azure Artifact Signing, provide a signing metadata file and set:
+
+```bash
+export VELOPACK_AZURE_TRUSTED_SIGN_FILE=/absolute/path/to/signing-metadata.json
+```
+
+The packaging script passes that file to `vpk pack`. The metadata, Azure credentials, and signing secrets must never be committed to this repository.
 
 ## Validation status and limitations
 
@@ -171,4 +204,4 @@ Validated locally:
 - A local Docker feed serves the release metadata and package.
 - The update package applies successfully on Ubuntu.
 
-This is a proof of concept, not a production release pipeline. Before shipping, add artifact signing, HTTPS hosting, release retention, rollback testing, telemetry, and validation on every supported Ubuntu version. The community `velopack_flutter` package also describes Linux support as less tested, so the AppImage restart behavior should be revalidated when upgrading that dependency.
+The local Docker flow remains a proof of concept. The GitHub Actions workflow supplies remote HTTPS hosting and release automation, but signing still requires your provider credentials and Pages must be enabled. Add release retention, rollback testing, telemetry, and validation on every supported Ubuntu version before shipping. The community `velopack_flutter` package also describes Linux support as less tested, so the AppImage restart behavior should be revalidated when upgrading that dependency.

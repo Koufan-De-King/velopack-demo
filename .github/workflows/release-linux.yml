@@ -1,0 +1,123 @@
+name: Release Linux AppImage
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Semantic version, for example 1.2.0"
+        required: true
+        type: string
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: linux-release
+  cancel-in-progress: false
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: version
+        shell: bash
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          version="${INPUT_VERSION:-${TAG_NAME#v}}"
+          test -n "$version"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.x
+
+      - name: Install Linux packaging tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends imagemagick squashfs-tools zstd
+          dotnet tool install --global vpk
+          echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
+
+      - name: Download the previous feed for delta generation
+        shell: bash
+        env:
+          FEED_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+        run: |
+          mkdir -p Releases
+          if curl --fail --silent --show-error "$FEED_URL/releases.linux.json" -o /tmp/releases.linux.json; then
+            vpk download http --url "$FEED_URL" --outputDir Releases
+          else
+            echo "No previous remote feed found; creating the first full release."
+          fi
+
+      - name: Build Flutter Linux bundle
+        env:
+          FEED_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+        run: |
+          flutter pub get
+          flutter build linux --release \
+            --build-name "${{ steps.version.outputs.version }}" \
+            --dart-define=APP_VERSION="${{ steps.version.outputs.version }}" \
+            --dart-define=VELOPACK_FEED="$FEED_URL"
+          mkdir -p build/generated
+          convert -background none assets/velopack-demo.svg \
+            -resize 256x256 build/generated/velopack-demo.png
+
+      - name: Package with deltas
+        env:
+          VPK_OUTPUT_DIR: Releases
+          VPK_DELTA_MODE: BestSpeed
+        run: ./scripts/package-release.sh "${{ steps.version.outputs.version }}"
+
+      - name: Publish GitHub Release assets
+        env:
+          VPK_OUTPUT_DIR: Releases
+          VPK_REPO_URL: https://github.com/${{ github.repository }}
+          VPK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          vpk upload github \
+            --outputDir "$VPK_OUTPUT_DIR" \
+            --repoUrl "$VPK_REPO_URL" \
+            --token "$VPK_TOKEN" \
+            --publish \
+            --tag "v${{ steps.version.outputs.version }}" \
+            --releaseName "Velopack Flutter Demo ${{ steps.version.outputs.version }}" \
+            --merge
+
+      - name: Upload the stable feed for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: Releases
+
+  deploy-pages:
+    needs: package
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy update feed
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -16,9 +16,19 @@ Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeVelopack(url: _releaseFeed);
 
-  // Velopack may relaunch the app with a lifecycle argument after applying
-  // an update. The app must continue into runApp() so the updated UI remains
-  // visible; initialization above is enough for this demo.
+  // Velopack invokes the main executable with these short-lived lifecycle
+  // hooks during install/update/uninstall. They must not create a UI.
+  const hookArguments = [
+    '--veloapp-install',
+    '--veloapp-obsolete',
+    '--veloapp-updated',
+    '--veloapp-uninstall',
+  ];
+  if (hookArguments.any(args.contains)) {
+    stderr.writeln('Velopack lifecycle hook handled: ${args.join(' ')}');
+    exit(0);
+  }
+
   runApp(const VelopackDemoApp());
 }
 
@@ -126,7 +136,10 @@ class _UpdateHomePageState extends State<UpdateHomePage> {
     });
 
     try {
-      await checkAndDownloadUpdatesWithProgress().last;
+      await for (final progress in checkAndDownloadUpdatesWithProgress()) {
+        if (!mounted) return;
+        setState(() => _status = 'Downloading the update… $progress%');
+      }
       if (!mounted) return;
       setState(() => _status = 'Restarting to install the update…');
 
