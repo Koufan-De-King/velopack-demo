@@ -168,7 +168,7 @@ tail -f /tmp/velopack_com.example.velopackdemo.log
 
 `.github/workflows/release-linux.yml` provides the production-shaped path:
 
-1. Push a tag such as `v1.2.0`, or run the workflow manually.
+1. Run the workflow manually with a version such as `1.2.0`.
 2. GitHub Actions builds the Linux AppImage in an ephemeral Ubuntu runner.
 3. It downloads the previous feed before packaging so Velopack can generate deltas.
 4. It publishes the release assets to GitHub Releases.
@@ -181,6 +181,8 @@ https://motouom.github.io/velopack-demo/
 ```
 
 Enable GitHub Pages for the repository with **GitHub Actions** as the source before using the workflow. The local demo continues to use `http://127.0.0.1:8080`.
+
+The workflow is currently manual-only to avoid automatically starting GitHub-hosted runners while the repository account has a billing lock. Re-enable the tag trigger after the billing issue is resolved if automatic releases are desired.
 
 ## Linux hooks and signing
 

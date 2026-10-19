@@ -7,9 +7,6 @@ on:
         description: "Semantic version, for example 1.2.0"
         required: true
         type: string
-  push:
-    tags:
-      - "v*.*.*"
 
 permissions:
   contents: write
