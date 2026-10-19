@@ -59,6 +59,7 @@ jobs:
             imagemagick \
             libgtk-3-dev \
             liblzma-dev \
+            librsvg2-bin \
             libstdc++-12-dev \
             ninja-build \
             pkg-config \
