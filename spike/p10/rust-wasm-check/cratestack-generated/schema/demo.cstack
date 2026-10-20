@@ -1,0 +1,23 @@
+// Minimal schema for the P10 wasm32 check: one type, one enum and two
+// procedures, the same surface a mobile/web client of our API would call.
+datasource db {
+  provider = "none"
+}
+
+enum Channel {
+  WebTransport
+  WebSocket
+}
+
+type Ping {
+  seq Int
+  sentAtMs Int
+  channel Channel
+  note String?
+}
+
+procedure echo(args: Ping): Ping
+  @allow(auth() != null)
+
+procedure health(args: Ping): Ping
+  @allow(true)

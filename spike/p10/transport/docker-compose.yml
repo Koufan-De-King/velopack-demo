@@ -1,0 +1,21 @@
+# P10 transport benchmark. Both containers share one Linux bridge network,
+# so latency/loss (tc netem) and outages (iptables DROP) hit real packets for
+# TCP (WebSocket) and UDP (QUIC/WebTransport) alike.
+#   ./gen-cert.sh && docker compose up --build --abort-on-container-exit
+services:
+  wt-server:
+    build: ./server
+    cap_add: [NET_ADMIN]          # tc netem on its own egress (/netem control)
+    volumes: ["./certs:/certs:ro"]
+    ports: ["9443:9443/tcp", "9443:9443/udp"]   # optional: try it from the host
+  bench:
+    build: ./bench
+    cap_add: [NET_ADMIN]          # tc netem + iptables on its own interface
+    depends_on: [wt-server]
+    environment:
+      RUNS: "${RUNS:-5}"
+      OUTAGE_RUNS: "${OUTAGE_RUNS:-3}"
+      OUTAGES: "${OUTAGES:-3000,15000,45000}"
+      CONNECT_TIMEOUTS: "${CONNECT_TIMEOUTS:-3000}"
+      SKIP_PERF: "${SKIP_PERF:-}"
+    volumes: ["./certs:/certs:ro", "./results:/results"]

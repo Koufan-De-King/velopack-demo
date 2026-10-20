@@ -1,0 +1,11 @@
+[package]
+name = "check-cratestack-client-middleware"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+cratestack-client = { version = "0.15.4", features = ["middleware"] }

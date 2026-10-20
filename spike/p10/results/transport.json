@@ -1,0 +1,2053 @@
+{
+ "chromium": "Chrome/155.0.8059.79",
+ "supported": {
+  "webtransport": true,
+  "websocket": true
+ },
+ "runs": 5,
+ "outageRuns": 3,
+ "conditions": {
+  "LAN (no shaping)": {
+   "client": "",
+   "server": "",
+   "small": [
+    20000,
+    64
+   ],
+   "large": [
+    2000,
+    16384
+   ]
+  },
+  "4G: 150 ms RTT, 9/1.5 Mbit/s": {
+   "client": "delay 75ms rate 1500kbit",
+   "server": "delay 75ms rate 9mbit",
+   "small": [
+    2000,
+    64
+   ],
+   "large": [
+    200,
+    16384
+   ]
+  },
+  "4G + 1% loss each way": {
+   "client": "delay 75ms rate 1500kbit loss 1%",
+   "server": "delay 75ms rate 9mbit loss 1%",
+   "small": [
+    2000,
+    64
+   ],
+   "large": [
+    200,
+    16384
+   ]
+  }
+ },
+ "results": [
+  {
+   "condition": "LAN (no shaping)",
+   "run": 1,
+   "transport": "webtransport",
+   "connectMs": 7.900000000139698,
+   "firstMessageMs": 10,
+   "rtt": {
+    "n": 100,
+    "mean": 0.8219999999995343,
+    "p50": 0.8000000000465661,
+    "p95": 1.3999999999068677,
+    "max": 2.0999999998603016
+   },
+   "datagramRtt": {
+    "n": 100,
+    "mean": 0.6390000000223517,
+    "p50": 0.6000000000931323,
+    "p95": 0.9000000001396984,
+    "max": 1.3000000000465661,
+    "lost": 0
+   },
+   "throughputSmall": {
+    "count": 20000,
+    "size": 64,
+    "received": 20000,
+    "ms": 51.4000000001397,
+    "msgsPerSec": 389105.0583647012,
+    "mbitPerSec": 199.22178988272702
+   },
+   "throughputLarge": {
+    "count": 2000,
+    "size": 16384,
+    "received": 2000,
+    "ms": 400.19999999995343,
+    "msgsPerSec": 4997.501249375894,
+    "mbitPerSec": 655.0324837581971
+   }
+  },
+  {
+   "condition": "LAN (no shaping)",
+   "run": 1,
+   "transport": "websocket",
+   "connectMs": 4.900000000139698,
+   "firstMessageMs": 6.100000000093132,
+   "rtt": {
+    "n": 100,
+    "mean": 0.7599999999953434,
+    "p50": 0.6999999999534339,
+    "p95": 1.5,
+    "max": 2.9000000001396984
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 20000,
+    "size": 64,
+    "received": 20000,
+    "ms": 2548.6999999999534,
+    "msgsPerSec": 7847.137756503459,
+    "mbitPerSec": 4.017734531329771
+   },
+   "throughputLarge": {
+    "count": 2000,
+    "size": 16384,
+    "received": 2000,
+    "ms": 738.6999999999534,
+    "msgsPerSec": 2707.459049682044,
+    "mbitPerSec": 354.8720725599249
+   }
+  },
+  {
+   "condition": "LAN (no shaping)",
+   "run": 2,
+   "transport": "webtransport",
+   "connectMs": 8.5,
+   "firstMessageMs": 11.5,
+   "rtt": {
+    "n": 100,
+    "mean": 1.4689999999967405,
+    "p50": 1.2999999998137355,
+    "p95": 2.699999999953434,
+    "max": 4.399999999906868
+   },
+   "datagramRtt": {
+    "n": 100,
+    "mean": 1.5809999999939464,
+    "p50": 1,
+    "p95": 1.8999999999068677,
+    "max": 45.5,
+    "lost": 0
+   },
+   "throughputSmall": {
+    "count": 20000,
+    "size": 64,
+    "received": 20000,
+    "ms": 46.0999999998603,
+    "msgsPerSec": 433839.47939393943,
+    "mbitPerSec": 222.12581344969698
+   },
+   "throughputLarge": {
+    "count": 2000,
+    "size": 16384,
+    "received": 2000,
+    "ms": 394.19999999995343,
+    "msgsPerSec": 5073.566717402933,
+    "mbitPerSec": 665.0025367834372
+   }
+  },
+  {
+   "condition": "LAN (no shaping)",
+   "run": 2,
+   "transport": "websocket",
+   "connectMs": 3.8999999999068677,
+   "firstMessageMs": 4.699999999953434,
+   "rtt": {
+    "n": 100,
+    "mean": 0.5689999999967403,
+    "p50": 0.5999999998603016,
+    "p95": 0.7000000001862645,
+    "max": 1
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 20000,
+    "size": 64,
+    "received": 20000,
+    "ms": 2532,
+    "msgsPerSec": 7898.894154818326,
+    "mbitPerSec": 4.044233807266982
+   },
+   "throughputLarge": {
+    "count": 2000,
+    "size": 16384,
+    "received": 2000,
+    "ms": 541.4000000001397,
+    "msgsPerSec": 3694.126339119845,
+    "mbitPerSec": 484.1965275211163
+   }
+  },
+  {
+   "condition": "LAN (no shaping)",
+   "run": 3,
+   "transport": "webtransport",
+   "connectMs": 5.100000000093132,
+   "firstMessageMs": 5.800000000046566,
+   "rtt": {
+    "n": 100,
+    "mean": 0.6199999999953434,
+    "p50": 0.6000000000931323,
+    "p95": 0.9000000001396984,
+    "max": 1.1000000000931323
+   },
+   "datagramRtt": {
+    "n": 100,
+    "mean": 0.5170000000065192,
+    "p50": 0.5,
+    "p95": 0.6999999999534339,
+    "max": 0.8999999999068677,
+    "lost": 0
+   },
+   "throughputSmall": {
+    "count": 20000,
+    "size": 64,
+    "received": 20000,
+    "ms": 45.800000000046566,
+    "msgsPerSec": 436681.2227069796,
+    "mbitPerSec": 223.58078602597357
+   },
+   "throughputLarge": {
+    "count": 2000,
+    "size": 16384,
+    "received": 2000,
+    "ms": 423.10000000009313,
+    "msgsPerSec": 4727.014890095863,
+    "mbitPerSec": 619.579295674645
+   }
+  },
+  {
+   "condition": "LAN (no shaping)",
+   "run": 3,
+   "transport": "websocket",
+   "connectMs": 4.2999999998137355,
+   "firstMessageMs": 5.5,
+   "rtt": {
+    "n": 100,
+    "mean": 0.674000000001397,
+    "p50": 0.6999999999534339,
+    "p95": 1.1000000000931323,
+    "max": 1.1999999999534339
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 20000,
+    "size": 64,
+    "received": 20000,
+    "ms": 2632,
+    "msgsPerSec": 7598.784194528875,
+    "mbitPerSec": 3.890577507598784
+   },
+   "throughputLarge": {
+    "count": 2000,
+    "size": 16384,
+    "received": 2000,
+    "ms": 458.5999999998603,
+    "msgsPerSec": 4361.098996948559,
+    "mbitPerSec": 571.6179677280415
+   }
+  },
+  {
+   "condition": "LAN (no shaping)",
+   "run": 4,
+   "transport": "webtransport",
+   "connectMs": 4.699999999953434,
+   "firstMessageMs": 5.5,
+   "rtt": {
+    "n": 100,
+    "mean": 0.6580000000051223,
+    "p50": 0.6000000000931323,
+    "p95": 0.8999999999068677,
+    "max": 1.1999999999534339
+   },
+   "datagramRtt": {
+    "n": 100,
+    "mean": 0.5660000000055879,
+    "p50": 0.5999999998603016,
+    "p95": 0.8000000000465661,
+    "max": 0.9000000001396984,
+    "lost": 0
+   },
+   "throughputSmall": {
+    "count": 20000,
+    "size": 64,
+    "received": 20000,
+    "ms": 48.10000000009313,
+    "msgsPerSec": 415800.4157996107,
+    "mbitPerSec": 212.8898128894007
+   },
+   "throughputLarge": {
+    "count": 2000,
+    "size": 16384,
+    "received": 2000,
+    "ms": 398.5999999998603,
+    "msgsPerSec": 5017.561465129706,
+    "mbitPerSec": 657.6618163574808
+   }
+  },
+  {
+   "condition": "LAN (no shaping)",
+   "run": 4,
+   "transport": "websocket",
+   "connectMs": 3.800000000046566,
+   "firstMessageMs": 4.599999999860302,
+   "rtt": {
+    "n": 100,
+    "mean": 0.780999999998603,
+    "p50": 0.8000000000465661,
+    "p95": 1,
+    "max": 1.1999999999534339
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 20000,
+    "size": 64,
+    "received": 20000,
+    "ms": 2352.3000000000466,
+    "msgsPerSec": 8502.31688135,
+    "mbitPerSec": 4.3531862432512
+   },
+   "throughputLarge": {
+    "count": 2000,
+    "size": 16384,
+    "received": 2000,
+    "ms": 495.5,
+    "msgsPerSec": 4036.326942482341,
+    "mbitPerSec": 529.0494450050454
+   }
+  },
+  {
+   "condition": "LAN (no shaping)",
+   "run": 5,
+   "transport": "webtransport",
+   "connectMs": 5.2000000001862645,
+   "firstMessageMs": 6,
+   "rtt": {
+    "n": 100,
+    "mean": 0.6739999999967403,
+    "p50": 0.6999999999534339,
+    "p95": 0.9000000001396984,
+    "max": 1.2000000001862645
+   },
+   "datagramRtt": {
+    "n": 100,
+    "mean": 0.5690000000060536,
+    "p50": 0.5999999998603016,
+    "p95": 0.7999999998137355,
+    "max": 0.8000000000465661,
+    "lost": 0
+   },
+   "throughputSmall": {
+    "count": 20000,
+    "size": 64,
+    "received": 20000,
+    "ms": 39.700000000186265,
+    "msgsPerSec": 503778.3375291225,
+    "mbitPerSec": 257.9345088149107
+   },
+   "throughputLarge": {
+    "count": 2000,
+    "size": 16384,
+    "received": 2000,
+    "ms": 396.19999999995343,
+    "msgsPerSec": 5047.955577991507,
+    "mbitPerSec": 661.6456335185028
+   }
+  },
+  {
+   "condition": "LAN (no shaping)",
+   "run": 5,
+   "transport": "websocket",
+   "connectMs": 3.5,
+   "firstMessageMs": 4.5,
+   "rtt": {
+    "n": 100,
+    "mean": 0.6529999999934808,
+    "p50": 0.6000000000931323,
+    "p95": 0.9000000001396984,
+    "max": 1.1999999999534339
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 20000,
+    "size": 64,
+    "received": 20000,
+    "ms": 2312.9000000001397,
+    "msgsPerSec": 8647.152924898954,
+    "mbitPerSec": 4.427342297548265
+   },
+   "throughputLarge": {
+    "count": 2000,
+    "size": 16384,
+    "received": 2000,
+    "ms": 473.70000000018626,
+    "msgsPerSec": 4222.081486171022,
+    "mbitPerSec": 553.3966645554083
+   }
+  },
+  {
+   "condition": "4G: 150 ms RTT, 9/1.5 Mbit/s",
+   "run": 1,
+   "transport": "webtransport",
+   "connectMs": 333.5,
+   "firstMessageMs": 487.4000000001397,
+   "rtt": {
+    "n": 100,
+    "mean": 153.92400000000606,
+    "p50": 153.89999999990687,
+    "p95": 155.10000000009313,
+    "max": 155.4000000001397
+   },
+   "datagramRtt": {
+    "n": 100,
+    "mean": 153.6959999999916,
+    "p50": 153.70000000018626,
+    "p95": 154.30000000004657,
+    "max": 155,
+    "lost": 0
+   },
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 498.39999999990687,
+    "msgsPerSec": 4012.8410914935266,
+    "mbitPerSec": 2.0545746388446857
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 3240.5,
+    "msgsPerSec": 61.71887054466903,
+    "mbitPerSec": 8.08961580003086
+   }
+  },
+  {
+   "condition": "4G: 150 ms RTT, 9/1.5 Mbit/s",
+   "run": 1,
+   "transport": "websocket",
+   "connectMs": 477,
+   "firstMessageMs": 632,
+   "rtt": {
+    "n": 100,
+    "mean": 154.4840000000014,
+    "p50": 153.89999999990687,
+    "p95": 154.5,
+    "max": 225.9000000001397
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 775.6000000000931,
+    "msgsPerSec": 2578.64878803476,
+    "mbitPerSec": 1.3202681794737972
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 3211.5,
+    "msgsPerSec": 62.27619492449011,
+    "mbitPerSec": 8.16266542114277
+   }
+  },
+  {
+   "condition": "4G: 150 ms RTT, 9/1.5 Mbit/s",
+   "run": 2,
+   "transport": "webtransport",
+   "connectMs": 327.5,
+   "firstMessageMs": 481.39999999990687,
+   "rtt": {
+    "n": 100,
+    "mean": 153.88500000000465,
+    "p50": 153.89999999990687,
+    "p95": 155.30000000004657,
+    "max": 156.19999999995343
+   },
+   "datagramRtt": {
+    "n": 100,
+    "mean": 154.54799999999116,
+    "p50": 153.70000000018626,
+    "p95": 154.4000000001397,
+    "max": 242.20000000018626,
+    "lost": 0
+   },
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 497.5,
+    "msgsPerSec": 4020.1005025125623,
+    "mbitPerSec": 2.058291457286432
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 3240.0999999998603,
+    "msgsPerSec": 61.72648992315318,
+    "mbitPerSec": 8.090614487207533
+   }
+  },
+  {
+   "condition": "4G: 150 ms RTT, 9/1.5 Mbit/s",
+   "run": 2,
+   "transport": "websocket",
+   "connectMs": 501.19999999995343,
+   "firstMessageMs": 654.5999999998603,
+   "rtt": {
+    "n": 100,
+    "mean": 153.77600000000092,
+    "p50": 153.89999999990687,
+    "p95": 154.39999999990687,
+    "max": 154.80000000004657
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 750.5,
+    "msgsPerSec": 2664.890073284477,
+    "mbitPerSec": 1.3644237175216523
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 3211.3000000000466,
+    "msgsPerSec": 62.28007349048582,
+    "mbitPerSec": 8.163173792544956
+   }
+  },
+  {
+   "condition": "4G: 150 ms RTT, 9/1.5 Mbit/s",
+   "run": 3,
+   "transport": "webtransport",
+   "connectMs": 332.89999999990687,
+   "firstMessageMs": 486.19999999995343,
+   "rtt": {
+    "n": 100,
+    "mean": 154.16499999999533,
+    "p50": 153.79999999981374,
+    "p95": 155.20000000018626,
+    "max": 185.5
+   },
+   "datagramRtt": {
+    "n": 100,
+    "mean": 153.50599999998695,
+    "p50": 153.5999999998603,
+    "p95": 154.10000000009313,
+    "max": 155.20000000018626,
+    "lost": 0
+   },
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 497.80000000004657,
+    "msgsPerSec": 4017.6777822414883,
+    "mbitPerSec": 2.057051024507642
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 3239.600000000093,
+    "msgsPerSec": 61.736016792194796,
+    "mbitPerSec": 8.091863192986557
+   }
+  },
+  {
+   "condition": "4G: 150 ms RTT, 9/1.5 Mbit/s",
+   "run": 3,
+   "transport": "websocket",
+   "connectMs": 478,
+   "firstMessageMs": 631.4000000001397,
+   "rtt": {
+    "n": 100,
+    "mean": 154.63799999999813,
+    "p50": 153.89999999990687,
+    "p95": 154.69999999995343,
+    "max": 232
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 751.3999999999069,
+    "msgsPerSec": 2661.698163428597,
+    "mbitPerSec": 1.3627894596754417
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 3211,
+    "msgsPerSec": 62.285892245406416,
+    "mbitPerSec": 8.16393646838991
+   }
+  },
+  {
+   "condition": "4G: 150 ms RTT, 9/1.5 Mbit/s",
+   "run": 4,
+   "transport": "webtransport",
+   "connectMs": 325.10000000009313,
+   "firstMessageMs": 478.10000000009313,
+   "rtt": {
+    "n": 100,
+    "mean": 154.5730000000028,
+    "p50": 154.0999999998603,
+    "p95": 155.5999999998603,
+    "max": 188.19999999995343
+   },
+   "datagramRtt": {
+    "n": 100,
+    "mean": 153.7939999999944,
+    "p50": 153.80000000004657,
+    "p95": 154.69999999995343,
+    "max": 155,
+    "lost": 0
+   },
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 498.39999999990687,
+    "msgsPerSec": 4012.8410914935266,
+    "mbitPerSec": 2.0545746388446857
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 3242.100000000093,
+    "msgsPerSec": 61.68841183183562,
+    "mbitPerSec": 8.085623515622359
+   }
+  },
+  {
+   "condition": "4G: 150 ms RTT, 9/1.5 Mbit/s",
+   "run": 4,
+   "transport": "websocket",
+   "connectMs": 477.5,
+   "firstMessageMs": 631.8000000000466,
+   "rtt": {
+    "n": 100,
+    "mean": 153.81600000000094,
+    "p50": 153.80000000004657,
+    "p95": 154.39999999990687,
+    "max": 155.79999999981374
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 754.1000000000931,
+    "msgsPerSec": 2652.1681474602215,
+    "mbitPerSec": 1.3579100914996334
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 3211.399999999907,
+    "msgsPerSec": 62.27813414710276,
+    "mbitPerSec": 8.162919598929053
+   }
+  },
+  {
+   "condition": "4G: 150 ms RTT, 9/1.5 Mbit/s",
+   "run": 5,
+   "transport": "webtransport",
+   "connectMs": 331.89999999990687,
+   "firstMessageMs": 485.0999999998603,
+   "rtt": {
+    "n": 100,
+    "mean": 154.21400000002234,
+    "p50": 154,
+    "p95": 155.29999999981374,
+    "max": 155.39999999990687
+   },
+   "datagramRtt": {
+    "n": 100,
+    "mean": 153.82599999999627,
+    "p50": 153.80000000004657,
+    "p95": 154.89999999990687,
+    "max": 155.60000000009313,
+    "lost": 0
+   },
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 498.60000000009313,
+    "msgsPerSec": 4011.2314480538034,
+    "mbitPerSec": 2.0537505014035475
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 3236.100000000093,
+    "msgsPerSec": 61.802787305705706,
+    "mbitPerSec": 8.100614937733459
+   }
+  },
+  {
+   "condition": "4G: 150 ms RTT, 9/1.5 Mbit/s",
+   "run": 5,
+   "transport": "websocket",
+   "connectMs": 479,
+   "firstMessageMs": 633,
+   "rtt": {
+    "n": 100,
+    "mean": 154.00099999999395,
+    "p50": 154,
+    "p95": 155.20000000018626,
+    "max": 155.60000000009313
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 759,
+    "msgsPerSec": 2635.046113306983,
+    "mbitPerSec": 1.3491436100131753
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 3210.5999999998603,
+    "msgsPerSec": 62.2936522768357,
+    "mbitPerSec": 8.16495359122941
+   }
+  },
+  {
+   "condition": "4G + 1% loss each way",
+   "run": 1,
+   "transport": "webtransport",
+   "connectMs": 337.69999999995343,
+   "firstMessageMs": 491.39999999990687,
+   "rtt": {
+    "n": 100,
+    "mean": 158.73700000003214,
+    "p50": 154,
+    "p95": 155.69999999995343,
+    "max": 386.70000000018626
+   },
+   "datagramRtt": {
+    "n": 98,
+    "mean": 153.69999999999143,
+    "p50": 153.79999999981374,
+    "p95": 154.30000000004657,
+    "max": 155.5,
+    "lost": 2
+   },
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 499.30000000004657,
+    "msgsPerSec": 4005.607850991014,
+    "mbitPerSec": 2.0508712197073993
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 7832.800000000047,
+    "msgsPerSec": 25.5336533551219,
+    "mbitPerSec": 3.346747012562538
+   }
+  },
+  {
+   "condition": "4G + 1% loss each way",
+   "run": 1,
+   "transport": "websocket",
+   "connectMs": 478.69999999995343,
+   "firstMessageMs": 631.8999999999069,
+   "rtt": {
+    "n": 100,
+    "mean": 160.95099999999627,
+    "p50": 153.80000000004657,
+    "p95": 154.39999999990687,
+    "max": 515.6999999999534
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 3555.100000000093,
+    "msgsPerSec": 562.5720795476773,
+    "mbitPerSec": 0.28803690472841076
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 16694.399999999907,
+    "msgsPerSec": 11.9800651715546,
+    "mbitPerSec": 1.5702511021660046
+   }
+  },
+  {
+   "condition": "4G + 1% loss each way",
+   "run": 2,
+   "transport": "webtransport",
+   "connectMs": 325.60000000009313,
+   "firstMessageMs": 478.69999999995343,
+   "rtt": {
+    "n": 100,
+    "mean": 158.10300000000979,
+    "p50": 153.9000000001397,
+    "p95": 155.10000000009313,
+    "max": 385.19999999995343
+   },
+   "datagramRtt": {
+    "n": 98,
+    "mean": 153.84081632652965,
+    "p50": 153.89999999990687,
+    "p95": 154.80000000004657,
+    "max": 155.70000000018626,
+    "lost": 2
+   },
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 644,
+    "msgsPerSec": 3105.590062111801,
+    "mbitPerSec": 1.5900621118012424
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 11575.09999999986,
+    "msgsPerSec": 17.278468436557993,
+    "mbitPerSec": 2.264723414916529
+   }
+  },
+  {
+   "condition": "4G + 1% loss each way",
+   "run": 2,
+   "transport": "websocket",
+   "connectMs": 479.0999999998603,
+   "firstMessageMs": 634.0999999998603,
+   "rtt": {
+    "n": 100,
+    "mean": 157.5739999999944,
+    "p50": 154,
+    "p95": 154.79999999981374,
+    "max": 511
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 1104.5,
+    "msgsPerSec": 1810.774105930285,
+    "mbitPerSec": 0.927116342236306
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 3356.8000000000466,
+    "msgsPerSec": 59.580552907530155,
+    "mbitPerSec": 7.809342230695793
+   }
+  },
+  {
+   "condition": "4G + 1% loss each way",
+   "run": 3,
+   "transport": "webtransport",
+   "connectMs": 332.19999999995343,
+   "firstMessageMs": 485,
+   "rtt": {
+    "n": 100,
+    "mean": 155.98400000001072,
+    "p50": 154.0999999998603,
+    "p95": 155.4000000001397,
+    "max": 334.29999999981374
+   },
+   "datagramRtt": {
+    "n": 95,
+    "mean": 153.7673684210492,
+    "p50": 153.69999999995343,
+    "p95": 154.5,
+    "max": 155.39999999990687,
+    "lost": 5
+   },
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 498.69999999995343,
+    "msgsPerSec": 4010.427110487641,
+    "mbitPerSec": 2.0533386805696723
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 13114.800000000047,
+    "msgsPerSec": 15.249946625186757,
+    "mbitPerSec": 1.9988410040564786
+   }
+  },
+  {
+   "condition": "4G + 1% loss each way",
+   "run": 3,
+   "transport": "websocket",
+   "connectMs": 477.19999999995343,
+   "firstMessageMs": 631.1999999999534,
+   "rtt": {
+    "n": 100,
+    "mean": 164.5680000000028,
+    "p50": 153.89999999990687,
+    "p95": 155,
+    "max": 512.4000000001397
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 2400.399999999907,
+    "msgsPerSec": 833.1944675887676,
+    "mbitPerSec": 0.426595567405449
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 24369.100000000093,
+    "msgsPerSec": 8.207114747774813,
+    "mbitPerSec": 1.0757229442203404
+   }
+  },
+  {
+   "condition": "4G + 1% loss each way",
+   "run": 4,
+   "transport": "webtransport",
+   "connectMs": 327.5,
+   "firstMessageMs": 482.4000000001397,
+   "rtt": {
+    "n": 100,
+    "mean": 161.295,
+    "p50": 153.9000000001397,
+    "p95": 165.19999999995343,
+    "max": 386.60000000009313
+   },
+   "datagramRtt": {
+    "n": 97,
+    "mean": 153.6247422680614,
+    "p50": 153.39999999990687,
+    "p95": 154.39999999990687,
+    "max": 171,
+    "lost": 3
+   },
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 625.1999999999534,
+    "msgsPerSec": 3198.9763275754144,
+    "mbitPerSec": 1.6378758797186121
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 8816.09999999986,
+    "msgsPerSec": 22.685768083393242,
+    "mbitPerSec": 2.973468994226519
+   }
+  },
+  {
+   "condition": "4G + 1% loss each way",
+   "run": 4,
+   "transport": "websocket",
+   "connectMs": 476.70000000018626,
+   "firstMessageMs": 629.9000000001397,
+   "rtt": {
+    "n": 100,
+    "mean": 157.32700000000884,
+    "p50": 153.80000000004657,
+    "p95": 154.4000000001397,
+    "max": 512.5999999998603
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 2324.1999999999534,
+    "msgsPerSec": 860.5111436193271,
+    "mbitPerSec": 0.4405817055330955
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 15204.800000000047,
+    "msgsPerSec": 13.153740923918722,
+    "mbitPerSec": 1.7240871303798746
+   }
+  },
+  {
+   "condition": "4G + 1% loss each way",
+   "run": 5,
+   "transport": "webtransport",
+   "connectMs": 338.90000000037253,
+   "firstMessageMs": 492.60000000009313,
+   "rtt": {
+    "n": 100,
+    "mean": 154.0179999999935,
+    "p50": 153.89999999990687,
+    "p95": 155,
+    "max": 156.60000000009313
+   },
+   "datagramRtt": {
+    "n": 98,
+    "mean": 153.51530612249175,
+    "p50": 153.5,
+    "p95": 154.60000000009313,
+    "max": 155.10000000009313,
+    "lost": 2
+   },
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 509.70000000018626,
+    "msgsPerSec": 3923.8767902673517,
+    "mbitPerSec": 2.009024916616884
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 14599.600000000093,
+    "msgsPerSec": 13.699005452204084,
+    "mbitPerSec": 1.7955560426312935
+   }
+  },
+  {
+   "condition": "4G + 1% loss each way",
+   "run": 5,
+   "transport": "websocket",
+   "connectMs": 479.39999999990687,
+   "firstMessageMs": 632.5,
+   "rtt": {
+    "n": 100,
+    "mean": 161.0809999999916,
+    "p50": 153.89999999990687,
+    "p95": 154.8000000002794,
+    "max": 514.3999999999069
+   },
+   "datagramRtt": null,
+   "throughputSmall": {
+    "count": 2000,
+    "size": 64,
+    "received": 2000,
+    "ms": 2389.100000000093,
+    "msgsPerSec": 837.1353229249182,
+    "mbitPerSec": 0.4286132853375581
+   },
+   "throughputLarge": {
+    "count": 200,
+    "size": 16384,
+    "received": 200,
+    "ms": 21701.80000000028,
+    "msgsPerSec": 9.215825415403213,
+    "mbitPerSec": 1.2079366688477298
+   }
+  }
+ ],
+ "outages": [
+  {
+   "transport": "webtransport",
+   "outageMs": 3000,
+   "run": 1,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 421.20000000018626,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 73,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2677,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 3000,
+   "run": 1,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 2780.5,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 97,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2525,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 15000,
+   "run": 1,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6810.100000000093,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6810.100000000093,
+     "tookMs": 8916.299999999814
+    }
+   ],
+   "firstMessageAfterRestoreMs": 796.5999999996275,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 109,
+   "totalLost": 71,
+   "events": [
+    {
+     "atMsFromDrop": -2677,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6810,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 9812,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 12914,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 15726,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 15000,
+   "run": 1,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 8412,
+   "pingsSentDuringOutage": 151,
+   "thoseDeliveredLater": 151,
+   "totalSent": 281,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2525,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 45000,
+   "run": 1,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6812.199999999721,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": null,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 95,
+   "totalLost": 70,
+   "events": [
+    {
+     "atMsFromDrop": -2648,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6812,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 9814,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 12917,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 16120,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 19522,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 23325,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 27926,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 32929,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 37932,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 42934,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 47937,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 52939,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 57942,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 62944,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 67945,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 72948,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 77950,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 82952,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 87954,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 92956,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 97958,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 102961,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 107964,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 112966,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 117969,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 122971,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 127974,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 132977,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 137980,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 142982,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 147985,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 152988,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 157990,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 162992,
+     "e": "connect failed: close() is called while connecting."
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 45000,
+   "run": 1,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 1599.4000000003725,
+   "pingsSentDuringOutage": 451,
+   "thoseDeliveredLater": 451,
+   "totalSent": 517,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2525,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 3000,
+   "run": 2,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [
+    {
+     "startAfterDropMs": -3004.0999999996275,
+     "tookMs": 94119.19999999972
+    }
+   ],
+   "firstMessageAfterRestoreMs": 88208.3999999999,
+   "pingsSentDuringOutage": 0,
+   "thoseDeliveredLater": 0,
+   "totalSent": 13,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -3,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 3099,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 6302,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 9705,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 13507,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 18111,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 23112,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 28116,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 33119,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 38121,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 43124,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 48128,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 53131,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 58134,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 63136,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 68139,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 73140,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 78142,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 83145,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 88147,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 91115,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 3000,
+   "run": 2,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 2799.3000000002794,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 97,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2525,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 15000,
+   "run": 2,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6810.100000000093,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6810.100000000093,
+     "tookMs": 8937.599999999627
+    }
+   ],
+   "firstMessageAfterRestoreMs": 811.5999999996275,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 109,
+   "totalLost": 71,
+   "events": [
+    {
+     "atMsFromDrop": -2613,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6810,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 9812,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 12916,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 15748,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 15000,
+   "run": 2,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 8245.600000000093,
+   "pingsSentDuringOutage": 151,
+   "thoseDeliveredLater": 151,
+   "totalSent": 278,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2526,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 45000,
+   "run": 2,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6811,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": null,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 95,
+   "totalLost": 70,
+   "events": [
+    {
+     "atMsFromDrop": -2657,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6811,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 9813,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 12915,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 16120,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 19524,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 23328,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 27931,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 32935,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 37937,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 42941,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 47943,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 52946,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 57949,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 62951,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 67953,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 72956,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 77959,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 82963,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 87966,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 92969,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 97972,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 102975,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 107976,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 112979,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 117982,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 122984,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 127985,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 132988,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 137990,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 142992,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 147994,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 152996,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 157998,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 163001,
+     "e": "connect failed: close() is called while connecting."
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 45000,
+   "run": 2,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 1711.1000000000931,
+   "pingsSentDuringOutage": 451,
+   "thoseDeliveredLater": 451,
+   "totalSent": 515,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2521,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 3000,
+   "run": 3,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [
+    {
+     "startAfterDropMs": -3003.5,
+     "tookMs": 49734.89999999991
+    }
+   ],
+   "firstMessageAfterRestoreMs": 43808.80000000028,
+   "pingsSentDuringOutage": 0,
+   "thoseDeliveredLater": 0,
+   "totalSent": 13,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 3099,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 6302,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 9704,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 13506,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 18108,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 23111,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 28113,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 33115,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 38117,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 43120,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 46732,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 3000,
+   "run": 3,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 2799.600000000093,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 97,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2526,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 15000,
+   "run": 3,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6814.9000000003725,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6814.9000000003725,
+     "tookMs": 23480.899999999907
+    }
+   ],
+   "firstMessageAfterRestoreMs": 15305,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 100,
+   "totalLost": 72,
+   "events": [
+    {
+     "atMsFromDrop": -1726,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6815,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 9817,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 12919,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 16121,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 19523,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 23326,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 27928,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 30296,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 15000,
+   "run": 3,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 8326.200000000186,
+   "pingsSentDuringOutage": 151,
+   "thoseDeliveredLater": 151,
+   "totalSent": 281,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2524,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 45000,
+   "run": 3,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6810,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": null,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 95,
+   "totalLost": 70,
+   "events": [
+    {
+     "atMsFromDrop": -2659,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6810,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 9811,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 12914,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 16117,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 19520,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 23322,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 27924,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 32927,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 37930,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 42932,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 47934,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 52936,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 57939,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 62942,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 67944,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 72947,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 77949,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 82952,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 87956,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 92960,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 97964,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 102966,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 107968,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 112970,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 117973,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 122977,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 127980,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 132983,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 137987,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 142991,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 147996,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 152998,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 158000,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 163003,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 168006,
+     "e": "connect failed: close() is called while connecting."
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 45000,
+   "run": 3,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 1407.5,
+   "pingsSentDuringOutage": 451,
+   "thoseDeliveredLater": 451,
+   "totalSent": 515,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2527,
+     "e": "open"
+    }
+   ]
+  }
+ ]
+}

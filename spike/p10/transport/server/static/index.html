@@ -1,0 +1,17 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>P10 transport bench</title>
+<h1>P10: WebTransport vs WebSocket</h1>
+<p>WebTransport supported: <b id="wt"></b></p>
+<button id="run">Run quick comparison</button>
+<pre id="out"></pre>
+<script type="module">
+  import { bench } from './client.js';
+  document.getElementById('wt').textContent = typeof WebTransport === 'function';
+  document.getElementById('run').onclick = async () => {
+    const out = document.getElementById('out');
+    for (const t of ['webtransport', 'websocket']) {
+      out.textContent += JSON.stringify(await bench.run(t), null, 1) + '\n';
+    }
+  };
+</script>

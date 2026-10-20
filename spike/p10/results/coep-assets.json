@@ -1,0 +1,46 @@
+[
+ {
+  "name": "no isolation headers",
+  "url": "https://localhost:8445/",
+  "crossOriginIsolated": false,
+  "img no-cors, no CORP header (Wikimedia)": "loaded",
+  "img crossorigin=anonymous, no CORP (Wikimedia)": "loaded",
+  "img no-cors, CORP: cross-origin (GitHub avatar)": "loaded",
+  "web font from fonts.gstatic.com": "loaded",
+  "fetch() CORS (Wikimedia)": "200",
+  "cross-origin iframe without COEP (example.com)": "load event",
+  "cross-origin popup (window.open)": "handle.closed=false",
+  "blockedRequests": []
+ },
+ {
+  "name": "COEP credentialless",
+  "url": "https://localhost:8443/",
+  "crossOriginIsolated": true,
+  "img no-cors, no CORP header (Wikimedia)": "loaded",
+  "img crossorigin=anonymous, no CORP (Wikimedia)": "loaded",
+  "img no-cors, CORP: cross-origin (GitHub avatar)": "loaded",
+  "web font from fonts.gstatic.com": "loaded",
+  "fetch() CORS (Wikimedia)": "200",
+  "cross-origin iframe without COEP (example.com)": "load event",
+  "cross-origin popup (window.open)": "handle.closed=true",
+  "blockedRequests": [
+   "net::ERR_BLOCKED_BY_RESPONSE https://example.com/"
+  ]
+ },
+ {
+  "name": "COEP require-corp",
+  "url": "https://localhost:8446/",
+  "crossOriginIsolated": true,
+  "img no-cors, no CORP header (Wikimedia)": "blocked/error",
+  "img crossorigin=anonymous, no CORP (Wikimedia)": "loaded",
+  "img no-cors, CORP: cross-origin (GitHub avatar)": "loaded",
+  "web font from fonts.gstatic.com": "loaded",
+  "fetch() CORS (Wikimedia)": "200",
+  "cross-origin iframe without COEP (example.com)": "load event",
+  "cross-origin popup (window.open)": "handle.closed=true",
+  "blockedRequests": [
+   "net::ERR_BLOCKED_BY_RESPONSE.NotSameOriginAfterDefaultedToSameOriginByCoep https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png?n=0.3754033278167058",
+   "net::ERR_BLOCKED_BY_RESPONSE https://example.com/"
+  ]
+ }
+]

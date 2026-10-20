@@ -1,0 +1,13 @@
+[package]
+name = "check-cratestack-generated"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+cratestack = { package = "cratestack-client", version = "0.15.4" }
+serde = { version = "1", features = ["derive"] }

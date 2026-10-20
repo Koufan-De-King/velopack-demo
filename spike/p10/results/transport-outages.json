@@ -1,0 +1,1166 @@
+{
+ "chromium": "Chrome/155.0.8059.79",
+ "supported": {
+  "webtransport": true,
+  "websocket": true
+ },
+ "runs": 5,
+ "outageRuns": 2,
+ "conditions": {
+  "LAN (no shaping)": {
+   "client": "",
+   "server": "",
+   "small": [
+    20000,
+    64
+   ],
+   "large": [
+    2000,
+    16384
+   ]
+  },
+  "4G: 150 ms RTT, 9/1.5 Mbit/s": {
+   "client": "delay 75ms rate 1500kbit",
+   "server": "delay 75ms rate 9mbit",
+   "small": [
+    2000,
+    64
+   ],
+   "large": [
+    200,
+    16384
+   ]
+  },
+  "4G + 1% loss each way": {
+   "client": "delay 75ms rate 1500kbit loss 1%",
+   "server": "delay 75ms rate 9mbit loss 1%",
+   "small": [
+    2000,
+    64
+   ],
+   "large": [
+    200,
+    16384
+   ]
+  }
+ },
+ "results": [],
+ "outages": [
+  {
+   "transport": "webtransport",
+   "outageMs": 3000,
+   "run": 1,
+   "connectTimeoutMs": 0,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 418.10000000009313,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 72,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2524,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 3000,
+   "run": 1,
+   "connectTimeoutMs": 0,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 2786.100000000093,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 98,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2524,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 15000,
+   "run": 1,
+   "connectTimeoutMs": 0,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6811.100000000093,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6811.100000000093,
+     "tookMs": 8694.69999999972
+    }
+   ],
+   "firstMessageAfterRestoreMs": 600.6999999997206,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 108,
+   "totalLost": 72,
+   "events": [
+    {
+     "atMsFromDrop": -2517,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6811,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 10818,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 14939,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 15506,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 15000,
+   "run": 1,
+   "connectTimeoutMs": 0,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 8555.399999999907,
+   "pingsSentDuringOutage": 151,
+   "thoseDeliveredLater": 151,
+   "totalSent": 284,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2525,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 45000,
+   "run": 1,
+   "connectTimeoutMs": 0,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6813.5,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6813.5,
+     "tookMs": 39287.59999999963
+    }
+   ],
+   "firstMessageAfterRestoreMs": 1199.9000000003725,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 107,
+   "totalLost": 72,
+   "events": [
+    {
+     "atMsFromDrop": -2533,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6814,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 10819,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 14933,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 19155,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 23594,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 28494,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 34335,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 40643,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 46101,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 45000,
+   "run": 1,
+   "connectTimeoutMs": 0,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 1565.7000000001863,
+   "pingsSentDuringOutage": 451,
+   "thoseDeliveredLater": 451,
+   "totalSent": 517,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2526,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 3000,
+   "run": 2,
+   "connectTimeoutMs": 0,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 417,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 72,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2522,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 3000,
+   "run": 2,
+   "connectTimeoutMs": 0,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 2774,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 97,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2525,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 15000,
+   "run": 2,
+   "connectTimeoutMs": 0,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6812,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6812,
+     "tookMs": 8688.899999999907
+    }
+   ],
+   "firstMessageAfterRestoreMs": 609.2999999998137,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 108,
+   "totalLost": 72,
+   "events": [
+    {
+     "atMsFromDrop": -2524,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6812,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 10819,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 14938,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 15501,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 15000,
+   "run": 2,
+   "connectTimeoutMs": 0,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 8528.799999999814,
+   "pingsSentDuringOutage": 151,
+   "thoseDeliveredLater": 151,
+   "totalSent": 281,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2525,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 45000,
+   "run": 2,
+   "connectTimeoutMs": 0,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6811.600000000093,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6811.600000000093,
+     "tookMs": 44000.200000000186
+    }
+   ],
+   "firstMessageAfterRestoreMs": 5906.399999999907,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 108,
+   "totalLost": 72,
+   "events": [
+    {
+     "atMsFromDrop": -2521,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6812,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 10819,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 14935,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 19168,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 23627,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 28543,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 34328,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 40530,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 46972,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 50812,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 45000,
+   "run": 2,
+   "connectTimeoutMs": 0,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 1672,
+   "pingsSentDuringOutage": 451,
+   "thoseDeliveredLater": 451,
+   "totalSent": 515,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2528,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 3000,
+   "run": 1,
+   "connectTimeoutMs": 10000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 422.89999999990687,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 72,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2521,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 3000,
+   "run": 1,
+   "connectTimeoutMs": 10000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 2753.600000000093,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 97,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2525,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 15000,
+   "run": 1,
+   "connectTimeoutMs": 10000,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6813.399999999907,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6813.399999999907,
+     "tookMs": 8688.799999999814
+    }
+   ],
+   "firstMessageAfterRestoreMs": 607.3999999999069,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 108,
+   "totalLost": 72,
+   "events": [
+    {
+     "atMsFromDrop": -2518,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6813,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 10819,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 14941,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 15502,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 15000,
+   "run": 1,
+   "connectTimeoutMs": 10000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 8391.5,
+   "pingsSentDuringOutage": 151,
+   "thoseDeliveredLater": 151,
+   "totalSent": 279,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2523,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 45000,
+   "run": 1,
+   "connectTimeoutMs": 10000,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6812.199999999721,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6812.299999999814,
+     "tookMs": 38789.80000000028
+    }
+   ],
+   "firstMessageAfterRestoreMs": 708.3000000002794,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 107,
+   "totalLost": 72,
+   "events": [
+    {
+     "atMsFromDrop": -2519,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6812,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 10818,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 14939,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 19160,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 23607,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 28522,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 34307,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 40560,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 45602,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 45000,
+   "run": 1,
+   "connectTimeoutMs": 10000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 1466.1000000000931,
+   "pingsSentDuringOutage": 451,
+   "thoseDeliveredLater": 451,
+   "totalSent": 517,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2525,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 3000,
+   "run": 2,
+   "connectTimeoutMs": 10000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 415.5,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 72,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2527,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 3000,
+   "run": 2,
+   "connectTimeoutMs": 10000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 2775.2000000001863,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 97,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2526,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 15000,
+   "run": 2,
+   "connectTimeoutMs": 10000,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6809.300000000279,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6809.300000000279,
+     "tookMs": 8672.299999999814
+    }
+   ],
+   "firstMessageAfterRestoreMs": 510.5,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 109,
+   "totalLost": 72,
+   "events": [
+    {
+     "atMsFromDrop": -2524,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6809,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 10816,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 14930,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 15482,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 15000,
+   "run": 2,
+   "connectTimeoutMs": 10000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 8387.600000000093,
+   "pingsSentDuringOutage": 151,
+   "thoseDeliveredLater": 151,
+   "totalSent": 281,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2527,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 45000,
+   "run": 2,
+   "connectTimeoutMs": 10000,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6811.299999999814,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6811.399999999907,
+     "tookMs": 39178.5
+    }
+   ],
+   "firstMessageAfterRestoreMs": 1007.2999999998137,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 106,
+   "totalLost": 71,
+   "events": [
+    {
+     "atMsFromDrop": -2524,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6811,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 10818,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 14934,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 19169,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 23631,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 28530,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 34363,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 40697,
+     "e": "connect failed: Opening handshake failed."
+    },
+    {
+     "atMsFromDrop": 45990,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 45000,
+   "run": 2,
+   "connectTimeoutMs": 10000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 1489.1000000000931,
+   "pingsSentDuringOutage": 451,
+   "thoseDeliveredLater": 451,
+   "totalSent": 517,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2525,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 3000,
+   "run": 1,
+   "connectTimeoutMs": 3000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 420.8000000002794,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 71,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2497,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 3000,
+   "run": 1,
+   "connectTimeoutMs": 3000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 2781.100000000093,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 97,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2525,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 15000,
+   "run": 1,
+   "connectTimeoutMs": 3000,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6809.399999999907,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6809.399999999907,
+     "tookMs": 8915.5
+    }
+   ],
+   "firstMessageAfterRestoreMs": 807.7999999998137,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 108,
+   "totalLost": 71,
+   "events": [
+    {
+     "atMsFromDrop": -2530,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6809,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 9813,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 12917,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 15725,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 15000,
+   "run": 1,
+   "connectTimeoutMs": 3000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 8249.700000000186,
+   "pingsSentDuringOutage": 151,
+   "thoseDeliveredLater": 151,
+   "totalSent": 281,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2526,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 45000,
+   "run": 1,
+   "connectTimeoutMs": 3000,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6811.5,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6811.5,
+     "tookMs": 45934.10000000009
+    }
+   ],
+   "firstMessageAfterRestoreMs": 7814.600000000093,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 106,
+   "totalLost": 71,
+   "events": [
+    {
+     "atMsFromDrop": -2520,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6812,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 9815,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 12918,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 16122,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 19525,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 23328,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 27929,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 32932,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 37933,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 42936,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 47938,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 52746,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 45000,
+   "run": 1,
+   "connectTimeoutMs": 3000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 1729.6999999997206,
+   "pingsSentDuringOutage": 451,
+   "thoseDeliveredLater": 451,
+   "totalSent": 515,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2525,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 3000,
+   "run": 2,
+   "connectTimeoutMs": 3000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 420.90000000037253,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 72,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2522,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 3000,
+   "run": 2,
+   "connectTimeoutMs": 3000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 2737,
+   "pingsSentDuringOutage": 31,
+   "thoseDeliveredLater": 31,
+   "totalSent": 98,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2525,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 15000,
+   "run": 2,
+   "connectTimeoutMs": 3000,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6810.0999999996275,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6810.0999999996275,
+     "tookMs": 8923.5
+    }
+   ],
+   "firstMessageAfterRestoreMs": 801.2000000001863,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 108,
+   "totalLost": 71,
+   "events": [
+    {
+     "atMsFromDrop": -2523,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6810,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 9814,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 12918,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 15734,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 15000,
+   "run": 2,
+   "connectTimeoutMs": 3000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 8589,
+   "pingsSentDuringOutage": 151,
+   "thoseDeliveredLater": 151,
+   "totalSent": 283,
+   "totalLost": 1,
+   "events": [
+    {
+     "atMsFromDrop": -2527,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "webtransport",
+   "outageMs": 45000,
+   "run": 2,
+   "connectTimeoutMs": 3000,
+   "connectionClosed": true,
+   "closeDetectedAfterDropMs": 6811.5999999996275,
+   "reconnects": [
+    {
+     "startAfterDropMs": 6811.5999999996275,
+     "tookMs": 40448.200000000186
+    }
+   ],
+   "firstMessageAfterRestoreMs": 2305.4000000003725,
+   "pingsSentDuringOutage": 68,
+   "thoseDeliveredLater": 0,
+   "totalSent": 108,
+   "totalLost": 71,
+   "events": [
+    {
+     "atMsFromDrop": -2524,
+     "e": "open"
+    },
+    {
+     "atMsFromDrop": 6812,
+     "e": "closed: Connection lost."
+    },
+    {
+     "atMsFromDrop": 9815,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 12917,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 16121,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 19525,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 23327,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 27929,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 32932,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 37936,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 42939,
+     "e": "connect failed: close() is called while connecting."
+    },
+    {
+     "atMsFromDrop": 47260,
+     "e": "open"
+    }
+   ]
+  },
+  {
+   "transport": "websocket",
+   "outageMs": 45000,
+   "run": 2,
+   "connectTimeoutMs": 3000,
+   "connectionClosed": false,
+   "closeDetectedAfterDropMs": null,
+   "reconnects": [],
+   "firstMessageAfterRestoreMs": 1353.7999999998137,
+   "pingsSentDuringOutage": 451,
+   "thoseDeliveredLater": 451,
+   "totalSent": 515,
+   "totalLost": 2,
+   "events": [
+    {
+     "atMsFromDrop": -2524,
+     "e": "open"
+    }
+   ]
+  }
+ ]
+}

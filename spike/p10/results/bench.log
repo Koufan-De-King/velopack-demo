@@ -1,0 +1,60 @@
+desktop, unthrottled | js | run 1 | cold ff=462 warm ff=449
+desktop, unthrottled | wasm | run 1 | cold ff=239 warm ff=243
+desktop, unthrottled | wasm-single-thread | run 1 | cold ff=230 warm ff=226
+desktop, unthrottled | js | run 2 | cold ff=437 warm ff=451
+desktop, unthrottled | wasm | run 2 | cold ff=236 warm ff=232
+desktop, unthrottled | wasm-single-thread | run 2 | cold ff=224 warm ff=225
+desktop, unthrottled | js | run 3 | cold ff=435 warm ff=453
+desktop, unthrottled | wasm | run 3 | cold ff=241 warm ff=243
+desktop, unthrottled | wasm-single-thread | run 3 | cold ff=253 warm ff=228
+desktop, unthrottled | js | run 4 | cold ff=450 warm ff=447
+desktop, unthrottled | wasm | run 4 | cold ff=237 warm ff=245
+desktop, unthrottled | wasm-single-thread | run 4 | cold ff=223 warm ff=222
+desktop, unthrottled | js | run 5 | cold ff=472 warm ff=470
+desktop, unthrottled | wasm | run 5 | cold ff=237 warm ff=244
+desktop, unthrottled | wasm-single-thread | run 5 | cold ff=228 warm ff=235
+desktop, 4G | js | run 1 | cold ff=3265 warm ff=1208
+desktop, 4G | wasm | run 1 | cold ff=3045 warm ff=1159
+desktop, 4G | wasm-single-thread | run 1 | cold ff=3011 warm ff=1156
+desktop, 4G | js | run 2 | cold ff=3259 warm ff=1208
+desktop, 4G | wasm | run 2 | cold ff=3015 warm ff=1174
+desktop, 4G | wasm-single-thread | run 2 | cold ff=3020 warm ff=1145
+desktop, 4G | js | run 3 | cold ff=3256 warm ff=1221
+desktop, 4G | wasm | run 3 | cold ff=3045 warm ff=1179
+desktop, 4G | wasm-single-thread | run 3 | cold ff=3012 warm ff=1156
+desktop, 4G | js | run 4 | cold ff=3263 warm ff=1245
+desktop, 4G | wasm | run 4 | cold ff=3030 warm ff=1168
+desktop, 4G | wasm-single-thread | run 4 | cold ff=3032 warm ff=1153
+desktop, 4G | js | run 5 | cold ff=3261 warm ff=1222
+desktop, 4G | wasm | run 5 | cold ff=3021 warm ff=1182
+desktop, 4G | wasm-single-thread | run 5 | cold ff=3014 warm ff=1147
+mobile 4x CPU, 4G | js | run 1 | cold ff=3973 warm ff=2334
+mobile 4x CPU, 4G | wasm | run 1 | cold ff=3475 warm ff=1764
+mobile 4x CPU, 4G | wasm-single-thread | run 1 | cold ff=3481 warm ff=1750
+mobile 4x CPU, 4G | js | run 2 | cold ff=3998 warm ff=2417
+mobile 4x CPU, 4G | wasm | run 2 | cold ff=3525 warm ff=1781
+mobile 4x CPU, 4G | wasm-single-thread | run 2 | cold ff=3486 warm ff=1755
+mobile 4x CPU, 4G | js | run 3 | cold ff=4006 warm ff=2464
+mobile 4x CPU, 4G | wasm | run 3 | cold ff=3511 warm ff=1799
+mobile 4x CPU, 4G | wasm-single-thread | run 3 | cold ff=3490 warm ff=1764
+mobile 4x CPU, 4G | js | run 4 | cold ff=4000 warm ff=2400
+mobile 4x CPU, 4G | wasm | run 4 | cold ff=3497 warm ff=1781
+mobile 4x CPU, 4G | wasm-single-thread | run 4 | cold ff=3513 warm ff=1779
+mobile 4x CPU, 4G | js | run 5 | cold ff=3982 warm ff=2503
+mobile 4x CPU, 4G | wasm | run 5 | cold ff=3519 warm ff=1781
+mobile 4x CPU, 4G | wasm-single-thread | run 5 | cold ff=3511 warm ff=1799
+mobile 4x CPU, slow 4G | js | run 1 | cold ff=18633 warm ff=4638
+mobile 4x CPU, slow 4G | wasm | run 1 | cold ff=16497 warm ff=4330
+mobile 4x CPU, slow 4G | wasm-single-thread | run 1 | cold ff=16487 warm ff=4356
+mobile 4x CPU, slow 4G | js | run 2 | cold ff=18667 warm ff=4680
+mobile 4x CPU, slow 4G | wasm | run 2 | cold ff=16500 warm ff=4333
+mobile 4x CPU, slow 4G | wasm-single-thread | run 2 | cold ff=16468 warm ff=4327
+mobile 4x CPU, slow 4G | js | run 3 | cold ff=18532 warm ff=4452
+mobile 4x CPU, slow 4G | wasm | run 3 | cold ff=16421 warm ff=4276
+mobile 4x CPU, slow 4G | wasm-single-thread | run 3 | cold ff=16423 warm ff=4256
+mobile 4x CPU, slow 4G | js | run 4 | cold ff=18529 warm ff=5053
+mobile 4x CPU, slow 4G | wasm | run 4 | cold ff=16429 warm ff=4306
+mobile 4x CPU, slow 4G | wasm-single-thread | run 4 | cold ff=16732 warm ff=4408
+mobile 4x CPU, slow 4G | js | run 5 | cold ff=18521 warm ff=4527
+mobile 4x CPU, slow 4G | wasm | run 5 | cold ff=16507 warm ff=4382
+mobile 4x CPU, slow 4G | wasm-single-thread | run 5 | cold ff=16415 warm ff=4248

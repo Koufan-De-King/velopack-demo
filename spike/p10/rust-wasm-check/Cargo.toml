@@ -1,0 +1,3 @@
+[workspace]
+resolver = "2"
+members = ["cratestack-generated", "velopack", "cratestack-client", "cratestack-client-cose", "cratestack-client-middleware"]

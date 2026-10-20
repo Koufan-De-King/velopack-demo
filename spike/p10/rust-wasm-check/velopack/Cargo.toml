@@ -1,0 +1,12 @@
+[package]
+name = "check-velopack"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+# Same version range velopack_flutter 0.2.0 resolves.
+velopack = "1.2.0"

@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:velopack_flutter/velopack_flutter.dart';
+
+import 'platform/platform.dart';
 
 const _releaseFeed = String.fromEnvironment(
   'VELOPACK_FEED',
@@ -14,21 +14,9 @@ const _appVersion =
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
-  await initializeVelopack(url: _releaseFeed);
+  if (!await initPlatform(args, _releaseFeed)) return;
 
-  // Velopack invokes the main executable with these short-lived lifecycle
-  // hooks during install/update/uninstall. They must not create a UI.
-  const hookArguments = [
-    '--veloapp-install',
-    '--veloapp-obsolete',
-    '--veloapp-updated',
-    '--veloapp-uninstall',
-  ];
-  if (hookArguments.any(args.contains)) {
-    stderr.writeln('Velopack lifecycle hook handled: ${args.join(' ')}');
-    exit(0);
-  }
-
+  WidgetsBinding.instance.addPostFrameCallback((_) => markFirstFrame());
   runApp(const VelopackDemoApp());
 }
 
@@ -65,15 +53,17 @@ class _UpdateHomePageState extends State<UpdateHomePage> {
   Timer? _updateTimer;
   bool _isBusy = false;
   bool _updateReady = false;
-  String _status = kDebugMode
-      ? 'Debug build: package this app as an AppImage to test Velopack updates.'
-      : 'Checking for updates in the background…';
+  String _status = !updatesSupported
+      ? 'Updates are delivered by the web server; Velopack is desktop-only.'
+      : kDebugMode
+          ? 'Debug build: package this app as an AppImage to test Velopack updates.'
+          : 'Checking for updates in the background…';
   String? _availableVersion;
 
   @override
   void initState() {
     super.initState();
-    if (!kDebugMode) {
+    if (!kDebugMode && updatesSupported) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         _checkForUpdate(silent: true);
       });
@@ -91,7 +81,7 @@ class _UpdateHomePageState extends State<UpdateHomePage> {
   }
 
   Future<void> _checkForUpdate({bool silent = false}) async {
-    if (kDebugMode) return;
+    if (kDebugMode || !updatesSupported) return;
     if (_isBusy || _updateReady) return;
     setState(() {
       _isBusy = true;
@@ -100,9 +90,9 @@ class _UpdateHomePageState extends State<UpdateHomePage> {
     });
 
     try {
-      final update = await getLatestUpdateInfo();
+      final version = await latestUpdateVersion();
       if (!mounted) return;
-      if (update == null) {
+      if (version == null) {
         setState(() {
           _isBusy = false;
           _status = 'You are on the latest version.';
@@ -110,7 +100,6 @@ class _UpdateHomePageState extends State<UpdateHomePage> {
         return;
       }
 
-      final version = update.targetFullRelease.version;
       setState(() {
         _availableVersion = version;
         _isBusy = false;
@@ -129,35 +118,21 @@ class _UpdateHomePageState extends State<UpdateHomePage> {
   }
 
   Future<void> _restartForUpdate() async {
-    if (kDebugMode) return;
+    if (kDebugMode || !updatesSupported) return;
     setState(() {
       _isBusy = true;
       _status = 'Downloading the update…';
     });
 
     try {
-      await for (final progress in checkAndDownloadUpdatesWithProgress()) {
+      await for (final progress in downloadUpdateWithProgress()) {
         if (!mounted) return;
         setState(() => _status = 'Downloading the update… $progress%');
       }
       if (!mounted) return;
       setState(() => _status = 'Restarting to install the update…');
 
-      // The Linux Flutter binding applies the package correctly, but its
-      // native restart callback is not reliable on AppImage. Start a tiny
-      // detached relauncher before asking Velopack to apply-and-exit.
-      final appImage = Platform.environment['APPIMAGE'];
-      if (appImage != null && appImage.isNotEmpty) {
-        await Process.start(
-          '/bin/sh',
-          ['-c', 'sleep 5; exec "\$1"', 'velopack-relauncher', appImage],
-          mode: ProcessStartMode.detached,
-        );
-        await updateAndExit();
-      } else {
-        // Keep the normal behavior for non-AppImage packaged environments.
-        await updateAndRestart();
-      }
+      await applyUpdateAndRestart();
     } catch (error) {
       if (!mounted) return;
       setState(() {
@@ -208,6 +183,12 @@ class _UpdateHomePageState extends State<UpdateHomePage> {
                   value: _appVersion,
                   icon: Icons.apps_rounded,
                 ),
+                const SizedBox(height: 12),
+                const _InfoCard(
+                  label: 'Runtime',
+                  value: runtimeLabel,
+                  icon: Icons.memory_rounded,
+                ),
                 const SizedBox(height: 24),
                 Text(_status, style: const TextStyle(color: Colors.white70)),
                 const SizedBox(height: 16),
@@ -216,7 +197,10 @@ class _UpdateHomePageState extends State<UpdateHomePage> {
                   runSpacing: 12,
                   children: [
                     FilledButton.icon(
-                      onPressed: _isBusy || _updateReady || kDebugMode
+                      onPressed: _isBusy ||
+                              _updateReady ||
+                              kDebugMode ||
+                              !updatesSupported
                           ? null
                           : () => _checkForUpdate(),
                       icon: _isBusy

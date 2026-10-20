@@ -1,0 +1,132 @@
+{
+ "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+ "results": [
+  {
+   "name": "wasm + COOP/COEP credentialless",
+   "url": "https://localhost:8443/",
+   "crossOriginIsolated": true,
+   "sharedArrayBuffer": true,
+   "firstFrameMark": true,
+   "appCode": [
+    "main.dart.mjs",
+    "main.dart.wasm"
+   ],
+   "renderer": [
+    "https://localhost:8443/canvaskit/skwasm.wasm",
+    "https://localhost:8443/canvaskit/skwasm.js"
+   ],
+   "externalResources": [],
+   "fontRequests": [
+    "200 https://localhost:8443/assets/fonts/MaterialIcons-Regular.otf",
+    "200 https://localhost:8443/assets/fonts/fallback/Roboto-Regular.ttf"
+   ],
+   "protocols": [
+    "h2"
+   ],
+   "runtime": "Web (WebAssembly / dart2wasm)",
+   "workers": [
+    "blob:https://localhost:8443/83d94c43-dcaa-4b4b-a611-cc503a4a2e7d"
+   ],
+   "multithreaded": true,
+   "consoleWarnings": [],
+   "failedRequests": [],
+   "httpErrors": [],
+   "screenshot": "../results/screenshot-8443.png"
+  },
+  {
+   "name": "js + COOP/COEP credentialless",
+   "url": "https://localhost:8444/",
+   "crossOriginIsolated": true,
+   "sharedArrayBuffer": true,
+   "firstFrameMark": true,
+   "appCode": [
+    "main.dart.js"
+   ],
+   "renderer": [
+    "https://localhost:8444/canvaskit/chromium/canvaskit.wasm",
+    "https://localhost:8444/canvaskit/chromium/canvaskit.js"
+   ],
+   "externalResources": [],
+   "fontRequests": [
+    "200 https://localhost:8444/assets/fonts/MaterialIcons-Regular.otf",
+    "200 https://localhost:8444/assets/fonts/fallback/Roboto-Regular.ttf"
+   ],
+   "protocols": [
+    "h2"
+   ],
+   "runtime": "Web (JavaScript / dart2js)",
+   "workers": [],
+   "multithreaded": false,
+   "consoleWarnings": [
+    "[debug] Injecting <script> tag. Using callback."
+   ],
+   "failedRequests": [],
+   "httpErrors": [],
+   "screenshot": "../results/screenshot-8444.png"
+  },
+  {
+   "name": "wasm, no isolation headers",
+   "url": "https://localhost:8445/",
+   "crossOriginIsolated": false,
+   "sharedArrayBuffer": false,
+   "firstFrameMark": true,
+   "appCode": [
+    "main.dart.mjs",
+    "main.dart.wasm"
+   ],
+   "renderer": [
+    "https://localhost:8445/canvaskit/skwasm.wasm",
+    "https://localhost:8445/canvaskit/skwasm.js"
+   ],
+   "externalResources": [],
+   "fontRequests": [
+    "200 https://localhost:8445/assets/fonts/MaterialIcons-Regular.otf",
+    "200 https://localhost:8445/assets/fonts/fallback/Roboto-Regular.ttf"
+   ],
+   "protocols": [
+    "h2"
+   ],
+   "runtime": "Web (WebAssembly / dart2wasm)",
+   "workers": [],
+   "multithreaded": false,
+   "consoleWarnings": [
+    "[warn] Flutter Web: Skwasm uses multi-threading and web workers for better performance, but your page needs to be cross-origin isolated to support multi-threading. Skwasm will run in single-threaded mode."
+   ],
+   "failedRequests": [],
+   "httpErrors": [],
+   "screenshot": "../results/screenshot-8445.png"
+  },
+  {
+   "name": "wasm + COOP/COEP require-corp",
+   "url": "https://localhost:8446/",
+   "crossOriginIsolated": true,
+   "sharedArrayBuffer": true,
+   "firstFrameMark": true,
+   "appCode": [
+    "main.dart.mjs",
+    "main.dart.wasm"
+   ],
+   "renderer": [
+    "https://localhost:8446/canvaskit/skwasm.wasm",
+    "https://localhost:8446/canvaskit/skwasm.js"
+   ],
+   "externalResources": [],
+   "fontRequests": [
+    "200 https://localhost:8446/assets/fonts/MaterialIcons-Regular.otf",
+    "200 https://localhost:8446/assets/fonts/fallback/Roboto-Regular.ttf"
+   ],
+   "protocols": [
+    "h2"
+   ],
+   "runtime": "Web (WebAssembly / dart2wasm)",
+   "workers": [
+    "blob:https://localhost:8446/6d8d1369-ed07-4992-9d93-32a301673439"
+   ],
+   "multithreaded": true,
+   "consoleWarnings": [],
+   "failedRequests": [],
+   "httpErrors": [],
+   "screenshot": "../results/screenshot-8446.png"
+  }
+ ]
+}

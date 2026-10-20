@@ -1,0 +1,566 @@
+{
+ "js": [
+  {
+   "path": ".last_build_id",
+   "category": "bootstrap (index.html, flutter*.js, version.json)",
+   "raw": 32,
+   "gzip": 52,
+   "br": 34
+  },
+  {
+   "path": "assets/AssetManifest.bin",
+   "category": "other assets",
+   "raw": 2,
+   "gzip": 22,
+   "br": 7
+  },
+  {
+   "path": "assets/AssetManifest.bin.json",
+   "category": "other assets",
+   "raw": 6,
+   "gzip": 26,
+   "br": 11
+  },
+  {
+   "path": "assets/FontManifest.json",
+   "category": "other assets",
+   "raw": 158,
+   "gzip": 115,
+   "br": 95
+  },
+  {
+   "path": "assets/NOTICES",
+   "category": "other assets",
+   "raw": 1316221,
+   "gzip": 98645,
+   "br": 41045
+  },
+  {
+   "path": "assets/fonts/MaterialIcons-Regular.otf",
+   "category": "fonts",
+   "raw": 8772,
+   "gzip": 4430,
+   "br": 4122
+  },
+  {
+   "path": "assets/fonts/fallback/Roboto-Regular.ttf",
+   "category": "fonts",
+   "raw": 171676,
+   "gzip": 90049,
+   "br": 74845
+  },
+  {
+   "path": "assets/shaders/ink_sparkle.frag",
+   "category": "other assets",
+   "raw": 8890,
+   "gzip": 2000,
+   "br": 1788
+  },
+  {
+   "path": "assets/shaders/stretch_effect.frag",
+   "category": "other assets",
+   "raw": 6737,
+   "gzip": 1346,
+   "br": 1204
+  },
+  {
+   "path": "canvaskit/canvaskit.js",
+   "category": "renderer: canvaskit",
+   "raw": 86987,
+   "gzip": 27493,
+   "br": 24371
+  },
+  {
+   "path": "canvaskit/canvaskit.js.symbols",
+   "category": "debug symbols (not downloaded)",
+   "raw": 1356926,
+   "gzip": 200033,
+   "br": 137423
+  },
+  {
+   "path": "canvaskit/canvaskit.wasm",
+   "category": "renderer: canvaskit",
+   "raw": 7284602,
+   "gzip": 2911112,
+   "br": 2257085
+  },
+  {
+   "path": "canvaskit/chromium/canvaskit.js",
+   "category": "renderer: chromium/",
+   "raw": 86226,
+   "gzip": 27279,
+   "br": 24146
+  },
+  {
+   "path": "canvaskit/chromium/canvaskit.js.symbols",
+   "category": "debug symbols (not downloaded)",
+   "raw": 1235870,
+   "gzip": 175590,
+   "br": 120287
+  },
+  {
+   "path": "canvaskit/chromium/canvaskit.wasm",
+   "category": "renderer: chromium/",
+   "raw": 5428806,
+   "gzip": 2059127,
+   "br": 1540246
+  },
+  {
+   "path": "canvaskit/skwasm.js",
+   "category": "renderer: skwasm",
+   "raw": 63537,
+   "gzip": 17054,
+   "br": 14885
+  },
+  {
+   "path": "canvaskit/skwasm.js.symbols",
+   "category": "debug symbols (not downloaded)",
+   "raw": 1540006,
+   "gzip": 227016,
+   "br": 149549
+  },
+  {
+   "path": "canvaskit/skwasm.wasm",
+   "category": "renderer: skwasm",
+   "raw": 3593715,
+   "gzip": 1536881,
+   "br": 1209789
+  },
+  {
+   "path": "canvaskit/skwasm_heavy.js",
+   "category": "renderer: skwasm_heavy",
+   "raw": 63650,
+   "gzip": 17063,
+   "br": 14903
+  },
+  {
+   "path": "canvaskit/skwasm_heavy.js.symbols",
+   "category": "debug symbols (not downloaded)",
+   "raw": 1672152,
+   "gzip": 254250,
+   "br": 167664
+  },
+  {
+   "path": "canvaskit/skwasm_heavy.wasm",
+   "category": "renderer: skwasm_heavy",
+   "raw": 5216217,
+   "gzip": 2285596,
+   "br": 1858459
+  },
+  {
+   "path": "canvaskit/webparagraph/canvaskit.js",
+   "category": "renderer: webparagraph/",
+   "raw": 76114,
+   "gzip": 24688,
+   "br": 21952
+  },
+  {
+   "path": "canvaskit/webparagraph/canvaskit.js.symbols",
+   "category": "debug symbols (not downloaded)",
+   "raw": 963641,
+   "gzip": 138029,
+   "br": 95720
+  },
+  {
+   "path": "canvaskit/webparagraph/canvaskit.wasm",
+   "category": "renderer: webparagraph/",
+   "raw": 3729129,
+   "gzip": 1401322,
+   "br": 1055638
+  },
+  {
+   "path": "canvaskit/wimp.js",
+   "category": "renderer: wimp",
+   "raw": 59127,
+   "gzip": 16751,
+   "br": 14653
+  },
+  {
+   "path": "canvaskit/wimp.js.symbols",
+   "category": "debug symbols (not downloaded)",
+   "raw": 1813030,
+   "gzip": 203747,
+   "br": 134058
+  },
+  {
+   "path": "canvaskit/wimp.wasm",
+   "category": "renderer: wimp",
+   "raw": 3581677,
+   "gzip": 1446038,
+   "br": 1132927
+  },
+  {
+   "path": "favicon.png",
+   "category": "icons/manifest",
+   "raw": 917,
+   "gzip": 825,
+   "br": 776
+  },
+  {
+   "path": "flutter.js",
+   "category": "bootstrap (index.html, flutter*.js, version.json)",
+   "raw": 12136,
+   "gzip": 4650,
+   "br": 4075
+  },
+  {
+   "path": "flutter_bootstrap.js",
+   "category": "bootstrap (index.html, flutter*.js, version.json)",
+   "raw": 13203,
+   "gzip": 5250,
+   "br": 4533
+  },
+  {
+   "path": "flutter_service_worker.js",
+   "category": "bootstrap (index.html, flutter*.js, version.json)",
+   "raw": 784,
+   "gzip": 356,
+   "br": 282
+  },
+  {
+   "path": "icons/Icon-192.png",
+   "category": "icons/manifest",
+   "raw": 5292,
+   "gzip": 5203,
+   "br": 5171
+  },
+  {
+   "path": "icons/Icon-512.png",
+   "category": "icons/manifest",
+   "raw": 8252,
+   "gzip": 6526,
+   "br": 6470
+  },
+  {
+   "path": "icons/Icon-maskable-192.png",
+   "category": "icons/manifest",
+   "raw": 5594,
+   "gzip": 5286,
+   "br": 5266
+  },
+  {
+   "path": "icons/Icon-maskable-512.png",
+   "category": "icons/manifest",
+   "raw": 20998,
+   "gzip": 18070,
+   "br": 18034
+  },
+  {
+   "path": "index.html",
+   "category": "bootstrap (index.html, flutter*.js, version.json)",
+   "raw": 1514,
+   "gzip": 764,
+   "br": 537
+  },
+  {
+   "path": "main.dart.js",
+   "category": "app code (js)",
+   "raw": 1950504,
+   "gzip": 572797,
+   "br": 449857
+  },
+  {
+   "path": "manifest.json",
+   "category": "icons/manifest",
+   "raw": 922,
+   "gzip": 299,
+   "br": 241
+  },
+  {
+   "path": "version.json",
+   "category": "bootstrap (index.html, flutter*.js, version.json)",
+   "raw": 96,
+   "gzip": 87,
+   "br": 84
+  }
+ ],
+ "wasm": [
+  {
+   "path": ".last_build_id",
+   "category": "bootstrap (index.html, flutter*.js, version.json)",
+   "raw": 32,
+   "gzip": 52,
+   "br": 34
+  },
+  {
+   "path": "assets/AssetManifest.bin",
+   "category": "other assets",
+   "raw": 2,
+   "gzip": 22,
+   "br": 7
+  },
+  {
+   "path": "assets/AssetManifest.bin.json",
+   "category": "other assets",
+   "raw": 6,
+   "gzip": 26,
+   "br": 11
+  },
+  {
+   "path": "assets/FontManifest.json",
+   "category": "other assets",
+   "raw": 158,
+   "gzip": 115,
+   "br": 95
+  },
+  {
+   "path": "assets/NOTICES",
+   "category": "other assets",
+   "raw": 1316221,
+   "gzip": 98645,
+   "br": 41045
+  },
+  {
+   "path": "assets/fonts/MaterialIcons-Regular.otf",
+   "category": "fonts",
+   "raw": 8772,
+   "gzip": 4430,
+   "br": 4122
+  },
+  {
+   "path": "assets/fonts/fallback/Roboto-Regular.ttf",
+   "category": "fonts",
+   "raw": 171676,
+   "gzip": 90049,
+   "br": 74845
+  },
+  {
+   "path": "assets/shaders/ink_sparkle.frag",
+   "category": "other assets",
+   "raw": 8890,
+   "gzip": 2000,
+   "br": 1788
+  },
+  {
+   "path": "assets/shaders/stretch_effect.frag",
+   "category": "other assets",
+   "raw": 6737,
+   "gzip": 1346,
+   "br": 1204
+  },
+  {
+   "path": "canvaskit/canvaskit.js",
+   "category": "renderer: canvaskit",
+   "raw": 86987,
+   "gzip": 27493,
+   "br": 24371
+  },
+  {
+   "path": "canvaskit/canvaskit.js.symbols",
+   "category": "debug symbols (not downloaded)",
+   "raw": 1356926,
+   "gzip": 200033,
+   "br": 137423
+  },
+  {
+   "path": "canvaskit/canvaskit.wasm",
+   "category": "renderer: canvaskit",
+   "raw": 7284602,
+   "gzip": 2911112,
+   "br": 2257085
+  },
+  {
+   "path": "canvaskit/chromium/canvaskit.js",
+   "category": "renderer: chromium/",
+   "raw": 86226,
+   "gzip": 27279,
+   "br": 24146
+  },
+  {
+   "path": "canvaskit/chromium/canvaskit.js.symbols",
+   "category": "debug symbols (not downloaded)",
+   "raw": 1235870,
+   "gzip": 175590,
+   "br": 120287
+  },
+  {
+   "path": "canvaskit/chromium/canvaskit.wasm",
+   "category": "renderer: chromium/",
+   "raw": 5428806,
+   "gzip": 2059127,
+   "br": 1540246
+  },
+  {
+   "path": "canvaskit/skwasm.js",
+   "category": "renderer: skwasm",
+   "raw": 63537,
+   "gzip": 17054,
+   "br": 14885
+  },
+  {
+   "path": "canvaskit/skwasm.js.symbols",
+   "category": "debug symbols (not downloaded)",
+   "raw": 1540006,
+   "gzip": 227016,
+   "br": 149549
+  },
+  {
+   "path": "canvaskit/skwasm.wasm",
+   "category": "renderer: skwasm",
+   "raw": 3593715,
+   "gzip": 1536881,
+   "br": 1209789
+  },
+  {
+   "path": "canvaskit/skwasm_heavy.js",
+   "category": "renderer: skwasm_heavy",
+   "raw": 63650,
+   "gzip": 17063,
+   "br": 14903
+  },
+  {
+   "path": "canvaskit/skwasm_heavy.js.symbols",
+   "category": "debug symbols (not downloaded)",
+   "raw": 1672152,
+   "gzip": 254250,
+   "br": 167664
+  },
+  {
+   "path": "canvaskit/skwasm_heavy.wasm",
+   "category": "renderer: skwasm_heavy",
+   "raw": 5216217,
+   "gzip": 2285596,
+   "br": 1858459
+  },
+  {
+   "path": "canvaskit/webparagraph/canvaskit.js",
+   "category": "renderer: webparagraph/",
+   "raw": 76114,
+   "gzip": 24688,
+   "br": 21952
+  },
+  {
+   "path": "canvaskit/webparagraph/canvaskit.js.symbols",
+   "category": "debug symbols (not downloaded)",
+   "raw": 963641,
+   "gzip": 138029,
+   "br": 95720
+  },
+  {
+   "path": "canvaskit/webparagraph/canvaskit.wasm",
+   "category": "renderer: webparagraph/",
+   "raw": 3729129,
+   "gzip": 1401322,
+   "br": 1055638
+  },
+  {
+   "path": "canvaskit/wimp.js",
+   "category": "renderer: wimp",
+   "raw": 59127,
+   "gzip": 16751,
+   "br": 14653
+  },
+  {
+   "path": "canvaskit/wimp.js.symbols",
+   "category": "debug symbols (not downloaded)",
+   "raw": 1813030,
+   "gzip": 203747,
+   "br": 134058
+  },
+  {
+   "path": "canvaskit/wimp.wasm",
+   "category": "renderer: wimp",
+   "raw": 3581677,
+   "gzip": 1446038,
+   "br": 1132927
+  },
+  {
+   "path": "favicon.png",
+   "category": "icons/manifest",
+   "raw": 917,
+   "gzip": 825,
+   "br": 776
+  },
+  {
+   "path": "flutter.js",
+   "category": "bootstrap (index.html, flutter*.js, version.json)",
+   "raw": 12136,
+   "gzip": 4650,
+   "br": 4075
+  },
+  {
+   "path": "flutter_bootstrap.js",
+   "category": "bootstrap (index.html, flutter*.js, version.json)",
+   "raw": 13237,
+   "gzip": 5216,
+   "br": 4512
+  },
+  {
+   "path": "flutter_service_worker.js",
+   "category": "bootstrap (index.html, flutter*.js, version.json)",
+   "raw": 784,
+   "gzip": 356,
+   "br": 282
+  },
+  {
+   "path": "icons/Icon-192.png",
+   "category": "icons/manifest",
+   "raw": 5292,
+   "gzip": 5203,
+   "br": 5171
+  },
+  {
+   "path": "icons/Icon-512.png",
+   "category": "icons/manifest",
+   "raw": 8252,
+   "gzip": 6526,
+   "br": 6470
+  },
+  {
+   "path": "icons/Icon-maskable-192.png",
+   "category": "icons/manifest",
+   "raw": 5594,
+   "gzip": 5286,
+   "br": 5266
+  },
+  {
+   "path": "icons/Icon-maskable-512.png",
+   "category": "icons/manifest",
+   "raw": 20998,
+   "gzip": 18070,
+   "br": 18034
+  },
+  {
+   "path": "index.html",
+   "category": "bootstrap (index.html, flutter*.js, version.json)",
+   "raw": 1514,
+   "gzip": 764,
+   "br": 537
+  },
+  {
+   "path": "main.dart.js",
+   "category": "app code (js)",
+   "raw": 1950504,
+   "gzip": 572797,
+   "br": 449857
+  },
+  {
+   "path": "main.dart.mjs",
+   "category": "app code (mjs)",
+   "raw": 29523,
+   "gzip": 7007,
+   "br": 6087
+  },
+  {
+   "path": "main.dart.wasm",
+   "category": "app code (wasm)",
+   "raw": 1562864,
+   "gzip": 579929,
+   "br": 458344
+  },
+  {
+   "path": "manifest.json",
+   "category": "icons/manifest",
+   "raw": 922,
+   "gzip": 299,
+   "br": 241
+  },
+  {
+   "path": "version.json",
+   "category": "bootstrap (index.html, flutter*.js, version.json)",
+   "raw": 96,
+   "gzip": 87,
+   "br": 84
+  }
+ ]
+}
