@@ -1,0 +1,3 @@
+another.camer.digital. TXT "v=spf1 ip4:203.0.113.10 -all"
+authz2026._domainkey.another.camer.digital. TXT "v=DKIM1; k=rsa; p=REPLACE_WITH_PUBLIC_KEY"
+_dmarc.another.camer.digital. TXT "v=DMARC1; p=none; rua=mailto:dmarc-reports@another.camer.digital; adkim=s; aspf=s"
