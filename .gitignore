@@ -45,3 +45,6 @@ Releases/
 *.iml
 .idea/workspace.xml
 .idea/**/workspace.xml
+
+# P13 local DKIM private material
+spikes/p13/private/
