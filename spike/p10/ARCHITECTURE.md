@@ -66,6 +66,6 @@
 
 - **Wasm:** about 2× faster on desktop and smoother on slow phones → use it.
 - **Headers:** they work, but they block popups and embedded pages → login and payment must open as full pages.
-- **Real-time:** keep **WebSocket** for now; WebTransport later, falling back to WebSocket.
+- **Real-time:** **WebTransport** as the main connection, falling back to **WebSocket** automatically.
 - **Rust:** our API client can run on the web; Velopack can't (and doesn't need to).
 - **Still to do:** the first visit on slow 4G is too slow (16–19 s).

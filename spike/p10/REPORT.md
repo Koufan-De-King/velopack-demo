@@ -32,13 +32,17 @@ load time, compatibility and operations?
    in S11: **cross-origin iframes are blocked** (payment widgets, P12) and
    **popups lose `window.opener`** (popup-based login or payment, P6/P12). Use
    full-page redirects.
-3. **WebTransport: not for the first release. Use WebSocket over TCP 443 as
-   the primary real-time channel, with WebTransport as an S11+ optional
-   upgrade behind feature detection** (decision in §10). WebTransport connects
-   one RTT faster, copes better with packet loss and recovers faster from short outages (see §8), but it needs a
-   QUIC-terminating server (nginx cannot proxy it), UDP 443 through every
-   network hop, and a WebSocket fallback anyway (UDP-blocking networks; ~8 %
-   of browsers).
+3. **Use WebTransport as the primary real-time channel, with WebSocket
+   over TCP 443 as the automatic fallback** (decision in §10). WebTransport
+   connects one RTT faster (330 vs 482 ms on 4G), carries 3.7× more small
+   messages at 1 % packet loss, and recovers faster from short outages
+   (0.4 vs 2.8 s after a 3 s cut), which are exactly the conditions of
+   congested mobile networks (see §8). The fallback is required: 3–5 % of
+   networks block UDP and ~8 % of browsers lack WebTransport, and Chrome
+   throttles WebTransport for up to 5 minutes after failed handshakes. The
+   backend must terminate QUIC itself (nginx provides no WebTransport), with
+   UDP 443 open on every hop. Evidence and sources:
+   [`WHY-WASM-AND-WEBTRANSPORT.md`](WHY-WASM-AND-WEBTRANSPORT.md).
 4. **Keep the Rust core out of the web build for now.** `velopack` cannot
    compile to wasm32 (and makes no sense in a browser); `cratestack-client`
    **does** compile to wasm32, including a generated client. Exposing it to
@@ -364,20 +368,20 @@ Full details and how to rerun: [`rust-wasm-check/README.md`](rust-wasm-check/REA
 
 ## 10. Fallback decision
 
-**Decision: WebSocket is the baseline. WebTransport is optional and falls back
-to WebSocket. No HTTP polling.**
+**Decision: WebTransport is the primary channel and falls back to WebSocket.
+No HTTP polling.**
 
 | Option | Verdict |
 |---|---|
-| WebTransport → WebSocket | **Chosen** for when WebTransport is adopted (S11+): feature-detect `WebTransport`, try it with a **~3 s connect timeout** (UDP may be blocked silently), and fall back to WebSocket on timeout, error or a missing API. After a WebTransport failure or drop, **reconnect on WebSocket** and retry WebTransport only after several minutes: Chromium penalises repeated failed WebTransport handshakes to the same server IP for up to 5 min (measured in §8). |
+| WebTransport → WebSocket | **Chosen** (S11): feature-detect `WebTransport`, try it with a **~3 s connect timeout** (UDP may be blocked silently), and fall back to WebSocket on timeout, error or a missing API. After a WebTransport failure or drop, **reconnect on WebSocket** and don't retry WebTransport on that network for ~15 minutes: Chromium penalises repeated failed WebTransport handshakes to the same server IP for up to 5 min and remembers failures for 15 min (measured in §8). |
 | WebTransport → HTTP/2 or HTTPS polling | Rejected: WebSocket works everywhere WebTransport is missing (~99 % of browsers, TCP 443 is never blocked) with far better latency than polling. Polling adds a third code path for no gain. |
-| No fallback for the first release | Rejected for WebTransport-only: it would cut off ~8 % of browsers and every user behind a UDP-blocking network. Accepted in the sense that **release 1 uses WebSocket only**. |
+| No fallback (WebTransport only) | Rejected: it would cut off ~8 % of browsers and every user behind a UDP-blocking network (3–5 % of networks, RFC 9308). |
 
 Browser support (caniuse, Oct 2026): WebTransport Chrome 97, Edge 98,
 Firefox 114, Safari/iOS **26.4**, Samsung Internet 18, ~91.6 % global.
 WebSocket: all browsers.
 
-Operational complexity of adding WebTransport:
+Operational work this decision requires:
 
 - a QUIC/HTTP/3 server with the WebTransport extension in the backend (Rust:
   `wtransport`, or `h3` + `h3-webtransport` on `quinn`); **nginx cannot proxy
@@ -388,7 +392,8 @@ Operational complexity of adding WebTransport:
   is weaker than WebSocket's);
 - a publicly trusted certificate (the `serverCertificateHashes` shortcut used
   here is development-only);
-- the WebSocket path must exist anyway, so WebTransport is pure extra.
+- the WebSocket fallback path must be built and tested as well, so both
+  transports share one message protocol (sequence numbers + replay).
 
 ## 11. Follow-up work for S11
 
@@ -407,12 +412,14 @@ Operational complexity of adding WebTransport:
    web target (`flutter_rust_bridge_codegen build-web`), call it from dart2wasm,
    prove the FRB lint is harmless at runtime, measure `.wasm` size after
    `wasm-opt -Oz`. Pin rustc ≥ 1.98 in CI.
-5. **Real-time channel**: build the production WebSocket path with an
-   application heartbeat (≤ 10 s; TCP alone never noticed a 45 s outage) and
-   resumable sessions (sequence numbers + replay), because the transport
-   alone loses messages on reconnect. Prototype WebTransport behind the
-   fallback only if P11 (QUIC on Cameroonian networks) shows a clear win. Share
-   the HTTP/3 server work with P11.
+5. **Real-time channel**: build WebTransport as the primary path in the
+   Rust backend (`wtransport`, or `h3` + `h3-webtransport` on `quinn`) with UDP
+   443 open end to end, and the WebSocket fallback on TCP 443, following the
+   connection rules in §10 (3 s timeout, 15-minute WebTransport back-off after
+   a failure). Both need an application heartbeat (WebSocket never noticed a
+   45 s outage) and resumable sessions (sequence numbers + replay), because
+   WebTransport loses in-flight messages when a session drops. Share the
+   HTTP/3 server work with P11 and validate on real Cameroonian networks.
 6. **Test on real devices and browsers**: a low-end Android phone on an MTN or
    Orange connection, Firefox and Safari (JS fallback path, `credentialless`
    ignored), iOS.

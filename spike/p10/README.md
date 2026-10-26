@@ -15,11 +15,12 @@ everything, and the raw results.
 |---|---|
 | Web build | Use **Wasm** (`flutter build web --wasm --no-web-resources-cdn`). In Chrome it's ~2× faster on desktop and downloads ~18 % less; other browsers automatically get the JavaScript build. |
 | Security headers | `Cross-Origin-Opener-Policy: same-origin` + `Cross-Origin-Embedder-Policy: credentialless`. They enable 2-thread rendering, but they block popups and cross-origin iframes, so login and payment must use full-page redirects. |
-| Real-time messages | **WebSocket** for now; WebTransport later, as an optional upgrade that falls back to WebSocket. |
+| Real-time messages | **WebTransport** as the main connection (faster, better on lossy mobile networks), with **WebSocket** as the automatic fallback. |
 | Rust code in the browser | `cratestack-client` compiles to Wasm; Velopack can't (and doesn't need to). |
 | Biggest open problem | The first visit on slow 4G takes 16–19 s. |
 
-Full details and numbers: **[REPORT.md](REPORT.md)**.
+Full details and numbers: **[REPORT.md](REPORT.md)**. Sources behind the
+Wasm and WebTransport decisions: **[WHY-WASM-AND-WEBTRANSPORT.md](WHY-WASM-AND-WEBTRANSPORT.md)**.
 
 ## What's in this folder
 
@@ -28,6 +29,7 @@ Full details and numbers: **[REPORT.md](REPORT.md)**.
 | [`REPORT.md`](REPORT.md) | **The full spike report**: question, setup, all measurements, compatibility issues, recommendation, follow-ups for S11 |
 | [`BRIEFING.md`](BRIEFING.md) | Short version: key numbers and talking points |
 | [`ARCHITECTURE.md`](ARCHITECTURE.md) | Simple diagram of the parts and how they connect |
+| [`WHY-WASM-AND-WEBTRANSPORT.md`](WHY-WASM-AND-WEBTRANSPORT.md) | Why Flutter Wasm, which browsers run it, and why WebTransport (with WebSocket fallback), with official sources |
 | [`deploy/`](deploy/) | Builds the JS and Wasm versions and serves them with nginx and the headers. **[`deploy/flutter-web.conf`](deploy/flutter-web.conf) is the header configuration to reuse.** See [`deploy/README.md`](deploy/README.md). |
 | [`bench/`](bench/) | Scripts that drive Chrome: header and multithreading checks (`verify.mjs`), what the headers block (`coep-assets.mjs`), loading benchmarks (`bench.mjs`) |
 | [`transport/`](transport/) | WebTransport vs WebSocket prototype: Go server, browser client, Docker benchmark. See [`transport/README.md`](transport/README.md). |

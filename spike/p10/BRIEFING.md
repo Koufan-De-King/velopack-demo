@@ -8,9 +8,9 @@ Full details: [`REPORT.md`](REPORT.md).
 
 > "Yes to Wasm, with the COOP/COEP headers, `credentialless`. It is faster
 > and smoother on Chrome and costs nothing elsewhere, because other browsers
-> automatically get the JS build. No to WebTransport for release 1: WebSocket
-> stays the main channel, and WebTransport can come later as an optional
-> upgrade that falls back to WebSocket. The Rust core stays off the web
+> automatically get the JS build. Yes to WebTransport as the main real-time
+> connection, because it's faster and copes better with bad mobile networks,
+> with WebSocket as the automatic fallback. The Rust core stays off the web
 > for now, but `cratestack-client` does compile to Wasm."
 
 ## What I did
@@ -128,11 +128,15 @@ so login and payment must use **full-page redirects**.
 
 ## Fallback decision
 
-**WebSocket first. WebTransport later as an optional upgrade that falls back to
-WebSocket. No HTTP polling.**
+**WebTransport first, with automatic fallback to WebSocket. No HTTP polling.**
 
-- Try WebTransport with a short timeout; on failure or drop, **switch to
-  WebSocket** and don't keep retrying (Chrome's 5-minute penalty).
+- Why WebTransport: connects faster (330 vs 482 ms), 3.7× more messages at
+  1 % packet loss, back in 0.4 s (vs 2.8 s) after a short network cut.
+- Why the fallback: 3–5 % of networks block UDP, ~8 % of browsers lack
+  WebTransport.
+- Try WebTransport with a ~3 s timeout; on failure or drop, **switch to
+  WebSocket** and don't retry WebTransport for ~15 min (Chrome's penalty of
+  up to 5 min after failures).
 - Either way we need an **app heartbeat** (WebSocket never detects a dead
   link) and **message replay** (WebTransport loses in-flight messages).
 
@@ -143,7 +147,7 @@ WebSocket. No HTTP polling.**
    deferred loading.
 3. Redirect-based login (P6) and payment (P12) because of COOP/COEP.
 4. Wire `cratestack-client` to the web through flutter_rust_bridge's web target.
-5. WebSocket with heartbeat + resume; revisit WebTransport with P11 results.
+5. WebTransport as the main channel (Rust backend, UDP 443) + WebSocket fallback, both with heartbeat + resume; share the HTTP/3 work with P11.
 6. Test on a real low-end Android phone on MTN/Orange, plus Firefox and Safari.
 
 ## If asked "what wasn't tested?"
